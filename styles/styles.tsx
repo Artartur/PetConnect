@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: "center",
     backgroundColor: "#fff",
     justifyContent: "center",
@@ -18,52 +19,73 @@ export const stylesLogin = StyleSheet.create({
     marginBottom: "5%",
     width: "80%",
   },
+
   buttonText: {
     color: "white",
     fontSize: 18,
   },
+
   checkbox: {
     borderColor: "gray",
     borderRadius: 3,
     borderWidth: 1,
     height: 24,
     marginBottom: "10%",
-    marginRight: 6,
+    marginHorizontal: 5,
     width: 24,
   },
+
   checkBoxContainer: {
+    justifyContent: "center",
+    textAlign: "center",
     flexDirection: "row",
-    paddingHorizontal: 5,
-    width: "80%",
+    width: "50%",
+    marginHorizontal: "2%",
   },
-  container: {
-    marginBottom: "10%",
-    top: 50,
+
+  forgotPasswordContainer: {
+    width: "50%",
   },
-  forgotPassword: {
-    marginLeft: "17%",
+
+  imageContainer: {
+    marginRight: "5%",
   },
+
+  managerAccessContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    width: "100%",
+    marginLeft: "5%",
+  },
+
   markup: {
     color: "#E88181",
   },
+
   text: {
     fontSize: 18,
   },
-  textInputEmail: {
-    backgroundColor: "#C4C4C433",
-    borderRadius: 10,
-    fontSize: 16,
-    height: 60,
-    marginBottom: "5%",
-    paddingHorizontal: 12,
-    width: "80%",
+});
+
+export const stylesInput = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    width: "100%",
+    marginVertical: "4%",
+    marginLeft: "5%",
   },
-  textInputPassword: {
+
+  icon: {
+    marginHorizontal: 2,
+  },
+
+  textInput: {
     backgroundColor: "#C4C4C433",
     borderRadius: 10,
     fontSize: 16,
     height: 60,
-    marginBottom: "3%",
     paddingHorizontal: 12,
     width: "80%",
   },
