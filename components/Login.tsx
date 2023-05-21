@@ -1,47 +1,66 @@
 import React, { useState } from "react";
 
+import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+
+import { stylesLogin } from "../styles/styles";
+
 import {
-  Image,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View
-} from "react-native";
-import { stylesLogin } from '../styles/styles'
+  ColorsOptions,
+  KeyboardTypeOptions,
+  InputModeOptions,
+} from "../types/enums";
+import InputWithIcon from "./InputWithIcon";
 
 export default function Login() {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
   return (
     <>
-      <View style={stylesLogin.container}>
+      <View style={stylesLogin.imageContainer}>
         <Image source={require("../assets/logo.png")} />
       </View>
 
-      <TextInput placeholder="Email" style={stylesLogin.textInputEmail} value={email} />
-
-      <TextInput
-        placeholder="Password"
-        style={stylesLogin.textInputPassword}
-        value={password}
+      <InputWithIcon
+        color={ColorsOptions.gray}
+        keyboardType={KeyboardTypeOptions.emailaddress}
+        inputMode={InputModeOptions.email}
+        name={"mail"}
+        placeholder="Email"
+        size={24}
       />
 
-      <TouchableOpacity style={stylesLogin.checkBoxContainer}>
-        <View style={stylesLogin.checkbox}></View>
-        <Text>Lembrar de mim</Text>
-        <Text style={stylesLogin.forgotPassword}>
-            Esqueceu a senha?
-        </Text>
-      </TouchableOpacity>
+      <InputWithIcon
+        color={ColorsOptions.gray}
+        keyboardType={KeyboardTypeOptions.default}
+        inputMode={InputModeOptions.text}
+        name={"lock-closed"}
+        placeholder="Senha"
+        size={24}
+      />
+
+      <View style={stylesLogin.managerAccessContainer}>
+        <TouchableOpacity style={stylesLogin.checkBoxContainer}>
+          <View style={stylesLogin.checkbox}></View>
+          <Text>Lembrar de mim</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={stylesLogin.forgotPasswordContainer}>
+          <Text>Esqueceu a senha?</Text>
+        </TouchableOpacity>
+      </View>
 
       <TouchableOpacity style={stylesLogin.buttonContainer}>
         <Text style={stylesLogin.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
-      <Text style={stylesLogin.text}>
-        Não tem uma conta? <Text style={stylesLogin.markup}>Inscrever-se</Text>
-      </Text>
+      <TouchableOpacity>
+        <Text style={stylesLogin.text}>
+          Não tem uma conta?{" "}
+          <Text style={stylesLogin.markup}>Inscrever-se</Text>
+        </Text>
+      </TouchableOpacity>
     </>
   );
 }
-
