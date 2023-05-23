@@ -87,6 +87,35 @@ export const stylesInput = StyleSheet.create({
   },
 });
 
+export const styleMainScreen = StyleSheet.create({
+  container:{
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    width: "100%"
+  },
+  icon:{
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "50%",
+  },
+  view:{
+    alignItems: "center",
+    backgroundColor: "#AB8262",
+    borderRadius: 10,
+    flexDirection: "column",
+    height: 120,
+    justifyContent: "center",
+    marginVertical: "10%",
+    width: "60%",
+  },
+  navigator:{
+    justifyContent: "flex-start",
+    width:"90%",
+  }
+});
+
 export const stylesRegister = StyleSheet.create({
   container: {
     alignItems: "center",
