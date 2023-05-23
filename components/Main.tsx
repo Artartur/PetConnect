@@ -1,13 +1,15 @@
 import React from "react";
+import { View } from "react-native";
 
 import Login from "./Login";
 import { styles } from "../styles/styles";
-import { View } from "react-native";
+import Register from "./Register";
 export default function Main() {
   return (
     <>
       <View style={styles.container}>
-        <Login/>
+        {/* <Login/> */}
+        <Register/>
       </View>
     </>
   );
