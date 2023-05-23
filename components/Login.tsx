@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+
+import Checkbox from "./Checkbox";
+import Button from "./Button";
 
 import { stylesLogin } from "../styles/styles";
 
@@ -12,10 +15,9 @@ import {
 import InputWithIcon from "./InputWithIcon";
 
 export default function Login() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   return (
     <>
       <View style={stylesLogin.imageContainer}>
@@ -41,19 +43,14 @@ export default function Login() {
       />
 
       <View style={stylesLogin.managerAccessContainer}>
-        <TouchableOpacity style={stylesLogin.checkBoxContainer}>
-          <View style={stylesLogin.checkbox}></View>
-          <Text>Lembrar de mim</Text>
-        </TouchableOpacity>
+        <Checkbox text={"Lembrar de mim"} />
 
-        <TouchableOpacity style={stylesLogin.forgotPasswordContainer}>
+        <TouchableOpacity>
           <Text>Esqueceu a senha?</Text>
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={stylesLogin.buttonContainer}>
-        <Text style={stylesLogin.buttonText}>Entrar</Text>
-      </TouchableOpacity>
+      <Button text={"Entrar"} />
 
       <TouchableOpacity>
         <Text style={stylesLogin.text}>
