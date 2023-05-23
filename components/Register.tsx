@@ -51,7 +51,10 @@ export default function Register() {
           size={24}
         />
 
-        <Checkbox text={"Li e aceito os termos de uso"} />
+        <View style={stylesRegister.checkbox}>
+          <Checkbox text={"Li e aceito os termos de uso"} />
+        </View>
+
         <Button text={"Cadastrar"} />
       </View>
     </>

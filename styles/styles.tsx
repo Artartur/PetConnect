@@ -98,5 +98,9 @@ export const stylesRegister = StyleSheet.create({
   image:{
     width: 250,
     height: 250,
+  },
+  checkbox:{
+    justifyContent: "flex-start",
+    width: "80%",
   }
 });
