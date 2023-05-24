@@ -1,11 +1,15 @@
 import { InputModeOptions, KeyboardTypeOptions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-export interface Checkboxs {
-  text: string;
+export interface Cards{
+  text:string;
+  children?: JSX.Element | JSX.Element[];
 }
 
-export interface Buttons extends Checkboxs {}
+export interface Checkboxs extends Cards {
+}
+
+export interface Buttons extends Cards {}
 
 export interface defaultProps {
   value?: string;

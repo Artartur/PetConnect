@@ -26,6 +26,20 @@ export const stylesButton = StyleSheet.create({
   },
 });
 
+export const stylesCard = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    backgroundColor: "#AB8262",
+    borderRadius: 10,
+    flexDirection: "column",
+    height: 120,
+    justifyContent: "center",
+    marginVertical: "10%",
+    width: "60%",
+  },
+  view: { alignItems: "center", flexDirection: "column", textAlign: "center" },
+});
+
 export const stylesCheckbox = StyleSheet.create({
   checkbox: {
     borderColor: "gray",
@@ -87,16 +101,6 @@ export const stylesInput = StyleSheet.create({
 });
 
 export const stylesMainScreen = StyleSheet.create({
-  card: {
-    alignItems: "center",
-    backgroundColor: "#AB8262",
-    borderRadius: 10,
-    flexDirection: "column",
-    height: 120,
-    justifyContent: "center",
-    marginVertical: "10%",
-    width: "60%",
-  },
   container: {
     alignItems: "center",
     flexDirection: "column",
@@ -109,11 +113,6 @@ export const stylesMainScreen = StyleSheet.create({
   },
   navigator: {
     width: "90%",
-  },
-  view: {
-    alignItems: "center",
-    flexDirection: "column",
-    textAlign: "center",
   },
 });
 
