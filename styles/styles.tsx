@@ -24,7 +24,7 @@ export const stylesButton = StyleSheet.create({
     color: "white",
     fontSize: 18,
   },
-})
+});
 
 export const stylesCheckbox = StyleSheet.create({
   checkbox: {
@@ -43,7 +43,6 @@ export const stylesCheckbox = StyleSheet.create({
 });
 
 export const stylesLogin = StyleSheet.create({
-
   imageContainer: {},
 
   managerAccessContainer: {
@@ -61,7 +60,7 @@ export const stylesLogin = StyleSheet.create({
   text: {
     fontSize: 18,
   },
-})
+});
 
 export const stylesInput = StyleSheet.create({
   container: {
@@ -87,20 +86,51 @@ export const stylesInput = StyleSheet.create({
   },
 });
 
+export const stylesMainScreen = StyleSheet.create({
+  card: {
+    alignItems: "center",
+    backgroundColor: "#AB8262",
+    borderRadius: 10,
+    flexDirection: "column",
+    height: 120,
+    justifyContent: "center",
+    marginVertical: "10%",
+    width: "60%",
+  },
+  container: {
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+    width: "100%",
+  },
+  icon: {
+    marginBottom: 10,
+  },
+  navigator: {
+    width: "90%",
+  },
+  view: {
+    alignItems: "center",
+    flexDirection: "column",
+    textAlign: "center",
+  },
+});
+
 export const stylesRegister = StyleSheet.create({
   container: {
     alignItems: "center",
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    width: "100%"
+    width: "100%",
   },
-  image:{
+  image: {
     width: 250,
     height: 250,
   },
-  checkbox:{
+  checkbox: {
     justifyContent: "flex-start",
     width: "80%",
-  }
+  },
 });
