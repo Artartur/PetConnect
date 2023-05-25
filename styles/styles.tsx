@@ -133,3 +133,15 @@ export const stylesRegister = StyleSheet.create({
     width: "80%",
   },
 });
+
+export const stylesReport = StyleSheet.create({
+  container:{
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+  },
+  buttonView:{
+    width: "80%",
+  }
+
+})

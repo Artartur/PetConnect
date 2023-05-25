@@ -6,6 +6,7 @@ import { styles } from "../styles/styles";
 import Register from "./Register";
 import Test from "./Test";
 import MainScreen from "./MainScreen";
+import ReportScreen from "./ReportScreen";
 export default function Main() {
   return (
     <>
@@ -13,7 +14,8 @@ export default function Main() {
         {/* <Login/> */}
         {/* <MainScreen/> */}
         {/* <Register/> */}
-        <Test/>
+        {/* <Test/> */}
+        <ReportScreen/>
       </View>
     </>
   );
