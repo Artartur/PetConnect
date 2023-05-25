@@ -18,6 +18,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = () => {};
+
   return (
     <>
       <View style={stylesLogin.imageContainer}>
@@ -50,7 +52,7 @@ export default function Login() {
         </TouchableOpacity>
       </View>
 
-      <Button text={"Entrar"} />
+      <Button text={"Entrar"} onPress={handleSubmit} />
 
       <TouchableOpacity>
         <Text style={stylesLogin.text}>

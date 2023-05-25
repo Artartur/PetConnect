@@ -7,7 +7,7 @@ import Register from "./Register";
 import MainScreen from "./MainScreen";
 import Card from "./Card";
 import ReportScreen from "./ReportScreen";
-import Test from "./Test";
+import Geolocation from "./Geolocation";
 export default function Main() {
   return (
     <>
@@ -16,7 +16,7 @@ export default function Main() {
         {/* <Register/> */}
         {/* <MainScreen/> */}
         {/* <ReportScreen/> */}
-        <Test/>
+        <Geolocation/>
       </View>
     </>
   );
