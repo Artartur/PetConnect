@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StatusBar, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
@@ -57,8 +57,6 @@ export const stylesCheckbox = StyleSheet.create({
 });
 
 export const stylesLogin = StyleSheet.create({
-  imageContainer: {},
-
   managerAccessContainer: {
     alignItems: "center",
     flexDirection: "row",
@@ -131,5 +129,22 @@ export const stylesRegister = StyleSheet.create({
   checkbox: {
     justifyContent: "flex-start",
     width: "80%",
+  },
+});
+
+export const stylesReport = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    marginTop: StatusBar.currentHeight || 0,
+    width: "100%",
+  },
+  
+  form: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
   },
 });
