@@ -36,7 +36,7 @@ export default function ReportScreen() {
   return (
     <>
       <View style={stylesReport.container}>
-        <Header text={"Nova Denuncia"} />
+        <Header showIcon={true} text={"Nova Denuncia"} />
         <View style={stylesReport.form}>
           <InputWithIcon
             color={ColorsOptions.gray}

@@ -8,12 +8,14 @@ import {
   KeyboardTypeOptions,
 } from "../types/enums";
 import InputWithIcon from "./InputWithIcon";
+import Header from "./Header";
 import { stylesRegister } from "../styles/styles";
 
 export default function Register() {
   return (
     <>
       <View style={stylesRegister.container}>
+        <Header showIcon={true} text={"Cadastro"} />
         <Image
           style={stylesRegister.image}
           source={require("../assets/logo.png")}

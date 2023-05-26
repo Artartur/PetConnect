@@ -6,6 +6,7 @@ import { ColorsOptions } from "../types/enums";
 import { stylesMainScreen } from "../styles/styles";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Header from "./Header";
 
 export default function MainScreen() {
   const iconRotation = [
@@ -15,11 +16,9 @@ export default function MainScreen() {
 
   return (
     <>
-      <TouchableOpacity style={stylesMainScreen.navigator}>
-        <Ionicons name={"arrow-back"} size={30} color={"#AB8262"} />
-      </TouchableOpacity>
-
       <View style={stylesMainScreen.container}>
+        <Header showIcon={false} text={"Home"} />
+
         <Card text={"Reportar um animal abandonado"}>
           <Ionicons
             style={iconRotation}
@@ -46,7 +45,6 @@ export default function MainScreen() {
             color={ColorsOptions.white}
           />
         </Card>
-
       </View>
     </>
   );
