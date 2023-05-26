@@ -18,6 +18,7 @@ export interface defaultProps {
 
 export interface Icons extends defaultProps {
   color: string;
+  iconStyle?: any;
   name: keyof typeof Ionicons.glyphMap;
   size: number;
 }
@@ -35,6 +36,9 @@ export interface Inputs extends defaultProps {
   numberOfLines?: number;
   onChangeText?: TextInputChangeHandler;
   placeholder?: string;
+  textInputStyle?: any;
 }
 
-export interface InputWithIcons extends Inputs, Icons {}
+export interface InputWithIcons extends Inputs, Icons {
+  containerStyle?: any;
+}
