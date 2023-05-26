@@ -7,21 +7,23 @@ import { InputWithIcons } from "../types/types";
 const InputWithIcon = ({
   autoComplete,
   autoCorrect,
+  color,
+  containerStyle,
   editable,
+  iconStyle,
   inputMode,
   keyboardType,
   maxLength,
   multiline,
+  name,
   numberOfLines,
   onChangeText,
-  value,
   placeholder,
-  name,
   size,
-  color,
+  textInputStyle,
+  value,
   ...OtherProps
 }: InputWithIcons) => {
-  
   const validateSize = (field: number | undefined): number | undefined => {
     return field === null || field === undefined ? 24 : field;
   };
@@ -32,10 +34,13 @@ const InputWithIcon = ({
       : field;
   };
 
+  const styleContainer = [stylesInput.container, containerStyle];
+  const styleInput = [stylesInput.textInput, textInputStyle];
+  const styleIcon = [stylesInput.icon, iconStyle];
+
   return (
     <>
-      <View style={stylesInput.container}>
-      
+      <View style={styleContainer}>
         <TextInput
           autoCorrect={autoCorrect}
           editable={editable}
@@ -46,7 +51,7 @@ const InputWithIcon = ({
           onChangeText={onChangeText}
           keyboardType={keyboardType}
           placeholder={placeholder}
-          style={stylesInput.textInput}
+          style={styleInput}
           value={value}
         />
 
@@ -54,9 +59,8 @@ const InputWithIcon = ({
           name={name}
           size={validateSize(size)}
           color={validateColor(color)}
-          style={stylesInput.icon}
+          style={styleIcon}
         />
-
       </View>
     </>
   );
