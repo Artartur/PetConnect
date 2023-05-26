@@ -18,6 +18,11 @@ export interface defaultProps {
   value?: string;
 }
 
+export interface Headers {
+  showIcon: boolean;
+  text: string;
+}
+
 export interface Icons extends defaultProps {
   color: string;
   iconStyle?: any;
