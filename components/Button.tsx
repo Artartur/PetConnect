@@ -4,11 +4,19 @@ import { Text, TouchableOpacity } from "react-native";
 import { stylesButton } from "../styles/styles";
 import { Buttons } from "../types/types";
 
-export default function ({ text, onPress}: Buttons){
+export default function ({
+  buttonContainerStyle,
+  buttonTextStyle,
+  text,
+  onPress,
+}: Buttons) {
+  const styleContainer = [stylesButton.buttonContainer, buttonContainerStyle];
+  const styleText = [stylesButton.buttonText, buttonTextStyle];
+
   return (
     <>
-      <TouchableOpacity style={stylesButton.buttonContainer} onPress={onPress}>
-        <Text style={stylesButton.buttonText}>{text}</Text>
+      <TouchableOpacity style={styleContainer} onPress={onPress}>
+        <Text style={styleText}>{text}</Text>
       </TouchableOpacity>
     </>
   );
