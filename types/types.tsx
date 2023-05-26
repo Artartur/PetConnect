@@ -10,6 +10,8 @@ export interface Checkboxs extends Cards {}
 
 export interface Buttons extends Cards {
   onPress(params: any): void;
+  buttonContainerStyle?: any;
+  buttonTextStyle?: any;
 }
 
 export interface defaultProps {
