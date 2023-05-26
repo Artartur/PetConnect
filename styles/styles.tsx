@@ -74,6 +74,30 @@ export const stylesLogin = StyleSheet.create({
   },
 });
 
+export const stylesHeader = StyleSheet.create({
+  header: {
+    alignItems: "center",
+    backgroundColor: "#F0F0F0",
+    flexDirection: "row",
+    height: 60,
+    position: "absolute",
+    justifyContent: "center",
+    top: 0,
+    left: 0,
+    right: 0,
+  },
+
+  navigator: {
+    position: "absolute",
+    left: 16,
+  },
+
+  text: {
+    textAlign: "center",
+    fontSize: 18,
+  },
+});
+
 export const stylesInput = StyleSheet.create({
   container: {
     alignItems: "center",
