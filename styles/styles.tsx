@@ -124,9 +124,11 @@ export const stylesInput = StyleSheet.create({
 
 export const stylesMainScreen = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "center",
+    marginTop: StatusBar.currentHeight || 0,
     textAlign: "center",
     width: "100%",
   },
@@ -144,6 +146,7 @@ export const stylesRegister = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
+    marginTop: StatusBar.currentHeight || 0,
     width: "100%",
   },
   image: {
@@ -165,7 +168,7 @@ export const stylesReport = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     width: "100%",
   },
-  
+
   form: {
     alignItems: "center",
     justifyContent: "center",
