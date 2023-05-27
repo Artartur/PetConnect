@@ -12,6 +12,9 @@ import Header from "./Header";
 import { stylesRegister } from "../styles/styles";
 
 export default function Register() {
+
+  const handleSubmit = () =>{}
+
   return (
     <>
       <View style={stylesRegister.container}>
@@ -57,7 +60,7 @@ export default function Register() {
           <Checkbox text={"Li e aceito os termos de uso"} />
         </View>
 
-        <Button text={"Cadastrar"} />
+        <Button text={"Cadastrar"} onPress={handleSubmit}/>
       </View>
     </>
   );
