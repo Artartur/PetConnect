@@ -1,3 +1,12 @@
+export enum Animals{
+  cachorro = "Cachorro",
+  cavalo = "Cavalo",
+  galinha = "Galinha",
+  gato = "Gato",
+  porco = "Porco",
+  outro = "Outro"
+}
+
 export enum ColorsOptions {
   black = "black",
   blue = "blue",

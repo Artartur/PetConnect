@@ -85,6 +85,7 @@ export const stylesHeader = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
+    zIndex: 1,
   },
 
   navigator: {
@@ -160,6 +161,13 @@ export const stylesRegister = StyleSheet.create({
 });
 
 export const stylesReport = StyleSheet.create({
+  buttons: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    alignContent: "center",
+  },
+
   container: {
     alignItems: "center",
     flex: 1,
@@ -177,19 +185,19 @@ export const stylesReport = StyleSheet.create({
 });
 
 export const stylesSelect = StyleSheet.create({
-  container:{
+  container: {
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical:"4%",
+    marginVertical: "4%",
     width: "100%",
   },
-  picker:{
+  picker: {
     backgroundColor: "#C4C4C433",
     marginRight: "3%",
     borderRadius: 12,
     fontSize: 16,
     height: 60,
     width: "79%",
-  }
+  },
 });
