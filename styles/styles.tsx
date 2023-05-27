@@ -175,3 +175,21 @@ export const stylesReport = StyleSheet.create({
     width: "100%",
   },
 });
+
+export const stylesSelect = StyleSheet.create({
+  container:{
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginVertical:"4%",
+    width: "100%",
+  },
+  picker:{
+    backgroundColor: "#C4C4C433",
+    marginRight: "3%",
+    borderRadius: 12,
+    fontSize: 16,
+    height: 60,
+    width: "79%",
+  }
+});

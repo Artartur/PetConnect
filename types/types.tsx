@@ -30,6 +30,14 @@ export interface Icons extends defaultProps {
   size: number;
 }
 
+export interface Selects{
+  containerStyle?: any;
+  fieldMapping: Array<any>;
+  label: string;
+  pickerStyle?: any,
+  value: string;
+}
+
 export type TextInputChangeHandler = (text: string) => void;
 
 export interface Inputs extends defaultProps {
