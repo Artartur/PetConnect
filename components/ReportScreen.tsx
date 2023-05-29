@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import * as Location from "expo-location";
+import * as ImagePicker from "expo-image-picker";
 import { Alert, ScrollView, StyleSheet, View } from "react-native";
 
 import InputWithIcon from "./InputWithIcon";
 import Button from "./Button";
 import Header from "./Header";
+import Card from "./Card";
+import ModalComponent from "./Modals";
+import Select from "./Select";
 
 import {
   Animals,
@@ -15,7 +19,6 @@ import {
 } from "../types/enums";
 
 import { stylesReport } from "../styles/styles";
-import Select from "./Select";
 
 export default function ReportScreen() {
   const [address, setAddress] = useState(false);
@@ -25,8 +28,14 @@ export default function ReportScreen() {
   const [isSecondButtonVisible, setSecondButtonVisible] = useState(true);
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
+  const [visible, setModalVisible] = useState(false);
   const [rua, setRua] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
   const fetchLocationAndAndress = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync();
@@ -82,8 +91,51 @@ export default function ReportScreen() {
     setAddress(true);
   };
 
-  const handleLocalization = () => {};
-  const handleSubmit = () => {};
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const onSubmit = () => {};
+
+  const pickImage = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (status !== "granted") {
+      Alert.alert(
+        "Ops! aconteceu um erro",
+        "A solicitacao para acessar sua galeira foi recusada, por favor aceite"
+      );
+      return;
+    }
+    const result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+    }
+  };
+
+  const takePhoto = async () => {
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+    if (status !== "granted") {
+      Alert.alert(
+        "Ops! aconteceu um erro",
+        "A solicitacao para acessar sua galeira foi recusada, por favor aceite"
+      );
+      return;
+    }
+    const result = await ImagePicker.launchCameraAsync({
+      allowsEditing: true,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+    }
+  };
 
   const mappingAnimals = [
     { label: Animals.cachorro, value: Animals.cachorro },
@@ -193,17 +245,33 @@ export default function ReportScreen() {
                 />
               )}
 
+              {visible && (
+                <ModalComponent visible={true} onClose={closeModal}>
+                  <Card
+                    containerStyle={style.containerCard}
+                    onPress={pickImage}
+                    text="Carregar Imagem"
+                  />
+
+                  <Card
+                    containerStyle={style.containerCard}
+                    onPress={takePhoto}
+                    text="Tirar Foto"
+                  />
+                </ModalComponent>
+              )}
+
               <Button
                 buttonContainerStyle={style.buttonContainer}
                 buttonTextStyle={style.buttonText}
-                onPress={handleLocalization}
+                onPress={openModal}
                 text={"Carregar Imagem"}
               />
 
               <Button
                 buttonContainerStyle={style.buttonContainer}
                 buttonTextStyle={style.buttonText}
-                onPress={handleSubmit}
+                onPress={onSubmit}
                 text={"Continuar"}
               />
             </View>
@@ -221,6 +289,11 @@ const style = StyleSheet.create({
 
   buttonText: {
     fontSize: 16,
+  },
+
+  containerCard: {
+    height: "20%",
+    width: "90%",
   },
 
   input: {
