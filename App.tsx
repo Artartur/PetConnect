@@ -1,15 +1,19 @@
-import React from 'react';
+import React from "react";
+import { View } from "react-native";
 
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 
-import Main from './components/Main'
+import Main from "./components/Main";
+import Routes from "./routes/Routes";
+import { styles } from "./styles/styles";
 
 export default function App() {
   return (
     <>
-      <StatusBar style='dark'/>
-      <Main/>
+      {/* <View style={styles.container}> */}
+        <StatusBar style="dark" />
+        <Routes />
+      {/* </View> */}
     </>
   );
 }
-

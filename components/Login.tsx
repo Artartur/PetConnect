@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigation } from "@react-navigation/native";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import Checkbox from "./Checkbox";
@@ -18,9 +18,11 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigation = useNavigation();
+
   return (
     <>
-      <View style={stylesLogin.imageContainer}>
+      <View>
         <Image source={require("../assets/logo.png")} />
       </View>
 
@@ -50,9 +52,9 @@ export default function Login() {
         </TouchableOpacity>
       </View>
 
-      <Button text={"Entrar"} />
+      <Button text={"Entrar"} onPress={()=>navigation.navigate("MainScreen")}/>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate("Register")}>
         <Text style={stylesLogin.text}>
           Não tem uma conta?{" "}
           <Text style={stylesLogin.markup}>Inscrever-se</Text>

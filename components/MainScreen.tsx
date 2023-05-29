@@ -1,5 +1,6 @@
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import Card from "./Card";
 import { ColorsOptions } from "../types/enums";
@@ -14,12 +15,14 @@ export default function MainScreen() {
     stylesMainScreen.icon,
   ];
 
+  const navigate = useNavigation();
+
   return (
     <>
       <View style={stylesMainScreen.container}>
         <Header showIcon={false} text={"Home"} />
 
-        <Card text={"Reportar um animal abandonado"}>
+        <Card text={"Reportar um animal abandonado"} onPress={()=>navigate.navigate("ReportScreen")}>
           <Ionicons
             style={iconRotation}
             name={"volume-high"}

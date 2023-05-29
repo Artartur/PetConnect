@@ -1,6 +1,6 @@
 import { InputModeOptions, KeyboardTypeOptions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-
+import { NativeStackNavigationProp } from "@react-navigation/native";
 export interface Cards {
   containerStyle?: any;
   children?: JSX.Element | JSX.Element[];
