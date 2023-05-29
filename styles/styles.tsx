@@ -141,6 +141,28 @@ export const stylesMainScreen = StyleSheet.create({
   },
 });
 
+export const stylesModal = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    flex: 1,
+    justifyContent: "center",
+  },
+  content: {
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 10,
+    height: "60%",
+    width: "80%",
+  },
+  childrenContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    height: "80%",
+    width: "80%",
+  },
+});
+
 export const stylesRegister = StyleSheet.create({
   container: {
     alignItems: "center",

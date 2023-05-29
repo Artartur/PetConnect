@@ -2,8 +2,10 @@ import { InputModeOptions, KeyboardTypeOptions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 export interface Cards {
-  text: string;
+  containerStyle?: any;
   children?: JSX.Element | JSX.Element[];
+  text: string;
+  viewStyle?: any;
 }
 
 export interface Checkboxs extends Cards {}
@@ -30,11 +32,17 @@ export interface Icons extends defaultProps {
   size: number;
 }
 
-export interface Selects{
+export interface Modals {
+  children?: JSX.Element | JSX.Element[];
+  onClose: (params: any) => void;
+  visible?: boolean;
+}
+
+export interface Selects {
   containerStyle?: any;
   fieldMapping: Array<any>;
   label: string;
-  pickerStyle?: any,
+  pickerStyle?: any;
   value: string;
 }
 
