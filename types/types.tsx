@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 export interface Cards {
   containerStyle?: any;
   children?: JSX.Element | JSX.Element[];
+  onPress?: (params: any) => void;
   text: string;
   viewStyle?: any;
 }

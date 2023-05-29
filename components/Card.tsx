@@ -3,11 +3,15 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { Cards } from "../types/types";
 import { stylesCard } from "../styles/styles";
 
-export default function Card({ children, text }: Cards) {
+export default function Card({ containerStyle, children, onPress, text, viewStyle }: Cards) {
+  
+  const styleContainer = [stylesCard.container, containerStyle]
+  const styleView = [stylesCard.view, viewStyle]
+
   return (
     <>
-      <TouchableOpacity style={stylesCard.container}>
-        <View style={stylesCard.view}>
+      <TouchableOpacity style={styleContainer} onPress={onPress}>
+        <View style={styleView}>
           {children}
           <Text>{text}</Text>
         </View>
