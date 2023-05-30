@@ -56,24 +56,6 @@ export const stylesCheckbox = StyleSheet.create({
   },
 });
 
-export const stylesLogin = StyleSheet.create({
-  managerAccessContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginBottom: "5%",
-    width: "100%",
-  },
-
-  markup: {
-    color: "#E88181",
-  },
-
-  text: {
-    fontSize: 18,
-  },
-});
-
 export const stylesHeader = StyleSheet.create({
   header: {
     alignItems: "center",
@@ -120,6 +102,32 @@ export const stylesInput = StyleSheet.create({
     height: 60,
     paddingHorizontal: 12,
     width: "80%",
+  },
+});
+
+export const stylesLogin = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "100%",
+  },
+
+  managerAccessContainer: {
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginBottom: "5%",
+    width: "100%",
+  },
+
+  markup: {
+    color: "#E88181",
+  },
+
+  text: {
+    fontSize: 18,
   },
 });
 
