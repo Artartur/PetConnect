@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import * as Location from "expo-location";
 import * as ImagePicker from "expo-image-picker";
-import { Alert, ScrollView, StyleSheet, View } from "react-native";
+import { Alert, ScrollView,Text, StyleSheet, View } from "react-native";
 
 import InputWithIcon from "./InputWithIcon";
 import Button from "./Button";
@@ -21,21 +21,21 @@ import {
 import { stylesReport } from "../styles/styles";
 
 export default function ReportScreen() {
-  const [address, setAddress] = useState(false);
-  const [bairro, setBairro] = useState("");
-  const [cidade, setCidade] = useState("");
-  const [isFirstButtonVisible, setFirstButtonVisible] = useState(true);
-  const [isSecondButtonVisible, setSecondButtonVisible] = useState(true);
-  const [lat, setLat] = useState(0);
-  const [lon, setLon] = useState(0);
-  const [visible, setModalVisible] = useState(false);
-  const [rua, setRua] = useState("");
+  const [address, setAddress] = useState({
+    city: "",
+    road: "",
+    suburb: "",
+  });
+
+  const [buttonVisibility, setButtonVisibility] = useState({
+    firstButton: true,
+    secondButton: true,
+  });
+
+  const [showButtons, setShowButtons] = useState(false);
+  const [modalVisibility, setModalVisibility] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
-
-  const closeModal = () => {
-    setModalVisible(false);
-  };
 
   const fetchLocationAndAndress = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync();
@@ -43,8 +43,6 @@ export default function ReportScreen() {
       try {
         const location = await Location.getCurrentPositionAsync({});
         const { latitude, longitude } = location.coords;
-        setLat(latitude);
-        setLon(longitude);
         getAddressFromCoordinates(latitude, longitude);
       } catch (err: any) {
         Alert.alert(
@@ -66,33 +64,49 @@ export default function ReportScreen() {
       const data = response.data;
       if (data && data.address && data.address.postcode) {
         const { city, road, suburb } = data.address;
-        setBairro(suburb || "");
-        setCidade(city || "");
-        setRua(road || "");
+        setAddress({
+          city: city || "",
+          road: road || "",
+          suburb: suburb || "",
+        });
       } else {
-        setBairro("Bairro nao encontrado");
-        setCidade("Cidade nao encontrada");
-        setRua("Rua nao encontrada");
+        setAddress({
+          city: "Cidade não encontrada",
+          road: "Rua não encontrada",
+          suburb: "Bairro não encontrado",
+        });
       }
     } catch (err) {
       Alert.alert("Ops! aconteceu um erro: ", "Endereco nao encontrado");
     }
   };
 
-  const handleFirstButtonVisible = () => {
-    setFirstButtonVisible(false);
-    setSecondButtonVisible(false);
+  const handleFirstButtonPress = () => {
+    setButtonVisibility({
+      firstButton: false,
+      secondButton: false,
+    });
     fetchLocationAndAndress();
   };
 
-  const handleSecondButtonVisible = () => {
-    setFirstButtonVisible(false);
-    setSecondButtonVisible(false);
-    setAddress(true);
+  const handleSecondButtonPress = () => {
+    setButtonVisibility({
+      firstButton: false,
+      secondButton: false
+    })
+    setShowButtons(true);
   };
 
+  const handleSelectChange = (value:string) => {
+    setSelectedValue(value)
+  }
+
   const openModal = () => {
-    setModalVisible(true);
+    setModalVisibility(true);
+  };
+
+  const closeModal = () => {
+    setModalVisibility(false);
   };
 
   const onSubmit = () => {};
@@ -184,11 +198,12 @@ export default function ReportScreen() {
             <Select
               fieldMapping={mappingAnimals}
               label={"Selecione uma Opcao"}
+              onChange={handleSelectChange}
               pickerStyle={style.select}
               value={selectedValue}
             />
 
-            {address && (
+            {showButtons && (
               <>
                 <InputWithIcon
                   color={ColorsOptions.gray}
@@ -227,25 +242,25 @@ export default function ReportScreen() {
             />
 
             <View style={stylesReport.buttons}>
-              {isFirstButtonVisible && (
+              {buttonVisibility.firstButton && (
                 <Button
                   buttonContainerStyle={style.buttonContainer}
                   buttonTextStyle={style.buttonText}
-                  onPress={handleFirstButtonVisible}
+                  onPress={handleFirstButtonPress}
                   text={"Inserir endereço com a localizaçao atual"}
                 />
               )}
 
-              {isSecondButtonVisible && (
+              {buttonVisibility.secondButton && (
                 <Button
                   buttonContainerStyle={style.buttonContainer}
                   buttonTextStyle={style.buttonText}
-                  onPress={handleSecondButtonVisible}
+                  onPress={handleSecondButtonPress}
                   text={"Inserir endereço manualmente"}
                 />
               )}
 
-              {visible && (
+              {modalVisibility && (
                 <ModalComponent visible={true} onClose={closeModal}>
                   <Card
                     containerStyle={style.containerCard}
