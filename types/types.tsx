@@ -43,6 +43,7 @@ export interface Selects {
   containerStyle?: any;
   fieldMapping: Array<any>;
   label: string;
+  onChange: (value:string) => void;
   pickerStyle?: any;
   value: string;
 }
