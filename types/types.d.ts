@@ -1,5 +1,6 @@
 import { InputModeOptions, KeyboardTypeOptions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { StackNavigationEventMap } from "@react-navigation/stack";
 
 export interface Cards {
   containerStyle?: any;
@@ -39,6 +40,13 @@ export interface Modals {
   visible?: boolean;
 }
 
+export type propsNavigationStack = {
+  Login: undefined;
+  MainScreen: undefined;
+  Register: undefined;
+  ReportScreen: undefined;
+};
+
 export interface Selects {
   containerStyle?: any;
   fieldMapping: Array<any>;
@@ -67,3 +75,5 @@ export interface Inputs extends defaultProps {
 export interface InputWithIcons extends Inputs, Icons {
   containerStyle?: any;
 }
+
+export type propsStack = StackNavigationEventMap<propsNavigationStack>
