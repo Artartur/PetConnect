@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#fff",
     justifyContent: "center",
+    marginTop: StatusBar.currentHeight || 0,
   },
 });
 
@@ -57,6 +58,14 @@ export const stylesCheckbox = StyleSheet.create({
 });
 
 export const stylesLogin = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "100%",
+  },
+
   managerAccessContainer: {
     alignItems: "center",
     flexDirection: "row",

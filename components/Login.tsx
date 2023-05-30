@@ -22,44 +22,49 @@ export default function Login() {
 
   return (
     <>
-      <View>
-        <Image source={require("../assets/logo.png")} />
-      </View>
+      <View style={stylesLogin.container}>
+        <View>
+          <Image source={require("../assets/logo.png")} />
+        </View>
 
-      <InputWithIcon
-        color={ColorsOptions.gray}
-        keyboardType={KeyboardTypeOptions.emailaddress}
-        inputMode={InputModeOptions.email}
-        name={"mail"}
-        placeholder="Email"
-        size={24}
-      />
+        <InputWithIcon
+          color={ColorsOptions.gray}
+          keyboardType={KeyboardTypeOptions.emailaddress}
+          inputMode={InputModeOptions.email}
+          name={"mail"}
+          placeholder="Email"
+          size={24}
+        />
 
-      <InputWithIcon
-        color={ColorsOptions.gray}
-        keyboardType={KeyboardTypeOptions.default}
-        inputMode={InputModeOptions.text}
-        name={"lock-closed"}
-        placeholder="Senha"
-        size={24}
-      />
+        <InputWithIcon
+          color={ColorsOptions.gray}
+          keyboardType={KeyboardTypeOptions.default}
+          inputMode={InputModeOptions.text}
+          name={"lock-closed"}
+          placeholder="Senha"
+          size={24}
+        />
 
-      <View style={stylesLogin.managerAccessContainer}>
-        <Checkbox text={"Lembrar de mim"} />
+        <View style={stylesLogin.managerAccessContainer}>
+          <Checkbox text={"Lembrar de mim"} />
 
-        <TouchableOpacity>
-          <Text>Esqueceu a senha?</Text>
+          <TouchableOpacity>
+            <Text>Esqueceu a senha?</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Button
+          text={"Entrar"}
+          onPress={() => navigation.navigate("MainScreen")}
+        />
+
+        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <Text style={stylesLogin.text}>
+            Não tem uma conta?{" "}
+            <Text style={stylesLogin.markup}>Inscrever-se</Text>
+          </Text>
         </TouchableOpacity>
       </View>
-
-      <Button text={"Entrar"} onPress={()=>navigation.navigate("MainScreen")}/>
-
-      <TouchableOpacity onPress={()=>navigation.navigate("Register")}>
-        <Text style={stylesLogin.text}>
-          Não tem uma conta?{" "}
-          <Text style={stylesLogin.markup}>Inscrever-se</Text>
-        </Text>
-      </TouchableOpacity>
     </>
   );
 }
