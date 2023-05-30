@@ -1,12 +1,13 @@
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
 
 import Card from "./Card";
+import Header from "./Header";
 import { ColorsOptions } from "../types/enums";
 import { stylesMainScreen } from "../styles/styles";
-
-import Ionicons from "@expo/vector-icons/Ionicons";
-import Header from "./Header";
+import { propsStack } from "../types/types";
 
 export default function MainScreen() {
   const iconRotation = [
@@ -14,12 +15,14 @@ export default function MainScreen() {
     stylesMainScreen.icon,
   ];
 
+  const navigate = useNavigation<propsStack>();
+
   return (
     <>
       <View style={stylesMainScreen.container}>
         <Header showIcon={false} text={"Home"} />
 
-        <Card text={"Reportar um animal abandonado"}>
+        <Card onPress={()=>navigate.navigate("ReportScreen")} text={"Reportar um animal abandonado"}>
           <Ionicons
             style={iconRotation}
             name={"volume-high"}
