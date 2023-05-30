@@ -1,19 +1,21 @@
 import React from "react";
 import { Image, View } from "react-native";
-import Checkbox from "./Checkbox";
+import { useNavigation } from "@react-navigation/native";
 import Button from "./Button";
+import Checkbox from "./Checkbox";
+import Header from "./Header";
+import InputWithIcon from "./InputWithIcon";
 import {
   ColorsOptions,
   InputModeOptions,
   KeyboardTypeOptions,
 } from "../types/enums";
-import InputWithIcon from "./InputWithIcon";
-import Header from "./Header";
 import { stylesRegister } from "../styles/styles";
-
+import { propsStack } from "../types/types";
 export default function Register() {
+  const handleSubmit = () => {};
 
-  const handleSubmit = () =>{}
+  const navigate = useNavigation<propsStack>();
 
   return (
     <>
@@ -60,7 +62,7 @@ export default function Register() {
           <Checkbox text={"Li e aceito os termos de uso"} />
         </View>
 
-        <Button text={"Cadastrar"} onPress={handleSubmit}/>
+        <Button text={"Cadastrar"} onPress={()=>navigate.navigate("Login")} />
       </View>
     </>
   );

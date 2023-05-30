@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import Checkbox from "./Checkbox";
 import Button from "./Button";
 import InputWithIcon from "./InputWithIcon";
 
 import { stylesLogin } from "../styles/styles";
-
+import { propsStack } from "../types/types";
 import {
   ColorsOptions,
   KeyboardTypeOptions,
@@ -17,6 +17,8 @@ import {
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigation<propsStack>();
 
   return (
     <>
@@ -51,9 +53,14 @@ export default function Login() {
           </TouchableOpacity>
         </View>
 
-        <Button text={"Entrar"} />
+        <Button
+          text={"Entrar"}
+          onPress={() => {
+            navigate.navigate("MainScreen");
+          }}
+        />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate.navigate("Register")}>
           <Text style={stylesLogin.text}>
             Não tem uma conta?{" "}
             <Text style={stylesLogin.markup}>Inscrever-se</Text>
