@@ -44,14 +44,15 @@ export type propsNavigationStack = {
   Login: undefined;
   MainScreen: undefined;
   Register: undefined;
-  ReportScreen: undefined;
+  ReportScreen: { onFormSubmit: FormSubmitHandler };
+  ReportScreenConfirm: undefined;
 };
 
 export interface Selects {
   containerStyle?: any;
   fieldMapping: Array<any>;
   label: string;
-  onChange: (value:string) => void;
+  onChange: (value: string) => void;
   pickerStyle?: any;
   value: string;
 }
@@ -76,4 +77,4 @@ export interface InputWithIcons extends Inputs, Icons {
   containerStyle?: any;
 }
 
-export type propsStack = StackNavigationEventMap<propsNavigationStack>
+export type propsStack = StackNavigationEventMap<propsNavigationStack>;

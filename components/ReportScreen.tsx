@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import * as Location from "expo-location";
 import * as ImagePicker from "expo-image-picker";
-import { Alert, ScrollView,Text, StyleSheet, View } from "react-native";
+import { Alert, ScrollView, StyleSheet, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import InputWithIcon from "./InputWithIcon";
 import Button from "./Button";
@@ -17,25 +18,33 @@ import {
   InputModeOptions,
   KeyboardTypeOptions,
 } from "../types/enums";
-
+import { propsStack } from "../types/types";
 import { stylesReport } from "../styles/styles";
 
 export default function ReportScreen() {
-  const [address, setAddress] = useState({
-    city: "",
-    road: "",
-    suburb: "",
-  });
-
   const [buttonVisibility, setButtonVisibility] = useState({
     firstButton: true,
     secondButton: true,
   });
+  const [selectedImage, setSelectedImage] = useState("");
+  const [data, setData] = useState({
+    address: {
+      city: "",
+      road: "",
+      suburb: "",
+    },
+    animal: "",
+    description: "",
+    email: "",
+    name: "",
+    phone: "",
+    picture: selectedImage,
+  });
 
   const [showButtons, setShowButtons] = useState(false);
   const [modalVisibility, setModalVisibility] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
-  const [selectedValue, setSelectedValue] = useState("");
+
+  const navigate = useNavigation<propsStack>();
 
   const fetchLocationAndAndress = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync();
@@ -64,17 +73,23 @@ export default function ReportScreen() {
       const data = response.data;
       if (data && data.address && data.address.postcode) {
         const { city, road, suburb } = data.address;
-        setAddress({
-          city: city || "",
-          road: road || "",
-          suburb: suburb || "",
-        });
+        setData((prevData) => ({
+          ...prevData,
+          address: {
+            city: city || "",
+            road: road || "",
+            suburb: suburb || "",
+          },
+        }));
       } else {
-        setAddress({
-          city: "Cidade não encontrada",
-          road: "Rua não encontrada",
-          suburb: "Bairro não encontrado",
-        });
+        setData((prevData) => ({
+          ...prevData,
+          address: {
+            city: "Cidade não encontrada",
+            road: "Rua não encontrada",
+            suburb: "Bairro não encontrado",
+          },
+        }));
       }
     } catch (err) {
       Alert.alert("Ops! aconteceu um erro: ", "Endereco nao encontrado");
@@ -89,17 +104,27 @@ export default function ReportScreen() {
     fetchLocationAndAndress();
   };
 
+  const handleInputChange = (name: string, value: string) => {
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const handleSecondButtonPress = () => {
     setButtonVisibility({
       firstButton: false,
-      secondButton: false
-    })
+      secondButton: false,
+    });
     setShowButtons(true);
   };
 
-  const handleSelectChange = (value:string) => {
-    setSelectedValue(value)
-  }
+  const handleSelectChange = (value: string) => {
+    setData((prevData) => ({
+      ...prevData,
+      animal: value,
+    }));
+  };
 
   const openModal = () => {
     setModalVisibility(true);
@@ -109,7 +134,27 @@ export default function ReportScreen() {
     setModalVisibility(false);
   };
 
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    if (data.name === "" || data.email === "" || data.phone === "") {
+      Alert.alert("Preencha todos os campos obrigatorios exceto a Descricao");
+      return;
+    }
+
+    const formData = {
+      address: {
+        city: data.address.city,
+        road: data.address.road,
+        suburb: data.address.suburb,
+      },
+      animal: data.animal,
+      description: data.description,
+      email: data.email,
+      name: data.name,
+      phone: data.phone,
+      picture: selectedImage,
+    };
+    navigate.navigate("ReportScreenConfirm", { formData });
+  };
 
   const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -171,8 +216,10 @@ export default function ReportScreen() {
               inputMode={InputModeOptions.text}
               keyboardType={KeyboardTypeOptions.default}
               name={"md-person"}
+              onChangeText={(value: string) => handleInputChange("name", value)}
               placeholder="Nome"
               size={20}
+              value={data.name}
             />
 
             <InputWithIcon
@@ -181,8 +228,12 @@ export default function ReportScreen() {
               inputMode={InputModeOptions.email}
               keyboardType={KeyboardTypeOptions.emailaddress}
               name={"mail"}
+              onChangeText={(value: string) =>
+                handleInputChange("email", value)
+              }
               placeholder="Email"
               size={20}
+              value={data.email}
             />
 
             <InputWithIcon
@@ -191,8 +242,12 @@ export default function ReportScreen() {
               inputMode={InputModeOptions.numeric}
               keyboardType={KeyboardTypeOptions.numeric}
               name={"phone-portrait"}
+              onChangeText={(value: string) =>
+                handleInputChange("phone", value)
+              }
               placeholder="Numero do telefone"
               size={20}
+              value={data.phone}
             />
 
             <Select
@@ -200,7 +255,7 @@ export default function ReportScreen() {
               label={"Selecione uma Opcao"}
               onChange={handleSelectChange}
               pickerStyle={style.select}
-              value={selectedValue}
+              value={data.animal}
             />
 
             {showButtons && (
@@ -208,25 +263,40 @@ export default function ReportScreen() {
                 <InputWithIcon
                   color={ColorsOptions.gray}
                   containerStyle={style.input}
+                  editable={true}
                   name={"location"}
+                  onChangeText={(value: string) =>
+                    handleInputChange("road", value)
+                  }
                   placeholder={"Rua"}
                   size={20}
+                  value={data.address.road}
                 />
 
                 <InputWithIcon
                   color={ColorsOptions.gray}
                   containerStyle={style.input}
+                  editable={true}
                   name={"location"}
+                  onChangeText={(value: string) =>
+                    handleInputChange("suburb", value)
+                  }
                   placeholder={"Bairro"}
                   size={20}
+                  value={data.address.suburb}
                 />
 
                 <InputWithIcon
                   color={ColorsOptions.gray}
                   containerStyle={style.input}
+                  editable={true}
                   name={"location"}
+                  onChangeText={(value: string) =>
+                    handleInputChange("city", value)
+                  }
                   placeholder={"Cidade"}
                   size={20}
+                  value={data.address.city}
                 />
               </>
             )}
@@ -237,8 +307,12 @@ export default function ReportScreen() {
               inputMode={InputModeOptions.text}
               keyboardType={KeyboardTypeOptions.default}
               name={"pencil"}
+              onChangeText={(value: string) =>
+                handleInputChange("description", value)
+              }
               placeholder="Descricao"
               size={20}
+              value={data.description}
             />
 
             <View style={stylesReport.buttons}>

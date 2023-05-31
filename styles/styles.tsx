@@ -214,6 +214,29 @@ export const stylesReport = StyleSheet.create({
   },
 });
 
+export const stylesReportConfirm = StyleSheet.create({
+  container:{
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    marginTop: StatusBar.currentHeight || 0,
+    width: "100%",
+  },
+  content:{
+    alignItems: "flex-start",
+    justifyContent: "center",
+    flexDirection: "column",
+    flex: 1,
+    width: "100%",
+    backgroundColor: "blue",
+  },
+  contentDatas:{
+      justifyContent: "space-evenly",
+      flexDirection: "row",
+  }
+});
+
 export const stylesSelect = StyleSheet.create({
   container: {
     alignItems: "center",
