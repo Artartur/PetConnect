@@ -214,6 +214,48 @@ export const stylesReport = StyleSheet.create({
   },
 });
 
+export const stylesReportConfirm = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    marginTop: StatusBar.currentHeight || 0,
+    width: "100%",
+  },
+  content: {
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    height: "80%",
+    width: "90%",
+  },
+  column: {},
+  contentDatas: {
+    justifyContent: "center",
+    flexDirection: "row",
+    borderBottomColor: "#AB8262",
+    borderBottomWidth: 1,
+    width: "100%",
+    height: "30%",
+  },
+  contentDescription: {
+    justifyContent: "flex-start",
+    flexDirection: "column",
+    borderBottomColor: "#AB8262",
+    borderBottomWidth: 1,
+    width: "100%",
+    height: "20%",
+    marginBottom: "10%",
+  },
+  data: {
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 16,
+  },
+});
+
 export const stylesSelect = StyleSheet.create({
   container: {
     alignItems: "center",

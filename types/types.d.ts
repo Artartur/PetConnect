@@ -41,6 +41,7 @@ export interface Modals {
 }
 
 export type propsNavigationStack = {
+  ConfirmReportScreen: { onFormSubmit: FormSubmitHandler };
   Login: undefined;
   MainScreen: undefined;
   Register: undefined;
@@ -51,7 +52,7 @@ export interface Selects {
   containerStyle?: any;
   fieldMapping: Array<any>;
   label: string;
-  onChange: (value:string) => void;
+  onChange: (value: string) => void;
   pickerStyle?: any;
   value: string;
 }
@@ -76,4 +77,4 @@ export interface InputWithIcons extends Inputs, Icons {
   containerStyle?: any;
 }
 
-export type propsStack = StackNavigationEventMap<propsNavigationStack>
+export type propsStack = StackNavigationEventMap<propsNavigationStack>;
