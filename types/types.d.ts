@@ -35,7 +35,7 @@ export interface Icons extends defaultProps {
 }
 
 export interface Modals {
-  buttonText: string;
+  buttonText?: string;
   children?: JSX.Element | JSX.Element[];
   onClose: (params: any) => void;
   visible?: boolean;
