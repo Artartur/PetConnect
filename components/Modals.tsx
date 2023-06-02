@@ -4,7 +4,12 @@ import { Modals } from "../types/types";
 import { stylesModal } from "../styles/styles";
 import Button from "./Button";
 
-export default function ModalComponent({ children, onClose, visible }: Modals) {
+export default function ModalComponent({
+  children,
+  onClose,
+  buttonText,
+  visible,
+}: Modals) {
   return (
     <>
       <Modal
@@ -16,7 +21,7 @@ export default function ModalComponent({ children, onClose, visible }: Modals) {
         <View style={stylesModal.container}>
           <View style={stylesModal.content}>
             <View style={stylesModal.childrenContainer}>{children}</View>
-            <Button text={"Fechar"} onPress={onClose} />
+            <Button text={buttonText || "Fechar"} onPress={onClose} />
           </View>
         </View>
       </Modal>
