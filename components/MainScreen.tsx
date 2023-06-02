@@ -31,7 +31,7 @@ export default function MainScreen() {
           />
         </Card>
 
-        <Card text={"Adotar um Pet"}>
+        <Card onPress={()=>navigate.navigate("AdoptionScreen")} text={"Adotar um Pet"}>
           <Ionicons
             style={stylesMainScreen.icon}
             name={"search"}

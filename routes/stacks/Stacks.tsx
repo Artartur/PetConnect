@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
+import AdoptionScreen from "../../components/AdoptionScreen";
 import ConfirmReportScreen from "../../components/ConfirmReportScreen";
 import Login from "../../components/Login";
 import MainScreen from "../../components/MainScreen";
@@ -14,6 +15,7 @@ export default function Stacks() {
   return (
     <>
       <Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+        <Screen name={"AdoptionScreen"} component={AdoptionScreen}/>
         <Screen name={"ConfirmReportScreen"} component={ConfirmReportScreen}/>
         <Screen name={"Login"} component={Login} />
         <Screen name={"MainScreen"} component={MainScreen} />

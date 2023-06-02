@@ -42,6 +42,7 @@ export interface Modals {
 }
 
 export type propsNavigationStack = {
+  AdoptionScreen: undefined;
   ConfirmReportScreen: { onFormSubmit: FormSubmitHandler };
   Login: undefined;
   MainScreen: undefined;

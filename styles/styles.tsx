@@ -9,6 +9,67 @@ export const styles = StyleSheet.create({
   },
 });
 
+export const stylesAdoption = StyleSheet.create({
+  age: {
+    flexDirection: "row",
+  },
+
+  card: {
+    alignItems: "center",
+    backgroundColor: "white",
+    borderColor: "#AB8262",
+    borderRadius: 10,
+    borderWidth: 1,
+    flexDirection: "row",
+    fontSize: 20,
+    justifyContent: "space-evenly",
+    height: 70,
+    left: "9%",
+    position: "absolute",
+    top: "87%",
+    width: "80%",
+    zIndex: 1,
+  },
+  container: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "column",
+    marginTop: StatusBar.currentHeight || 0,
+    textAlign: "center",
+  },
+  description:{
+    alignItems: "center",
+    borderBottomColor: "#AB8262",
+    borderBottomWidth: 1,
+    height: 100,
+    marginTop: "10%",
+    textAlign: "center",
+    width: "90%",
+  },
+  image: {
+    justifyContent: "center",
+    marginTop: "15%",
+  },
+  informations:{
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginTop: "5%",
+    width: "110%",
+  },
+  label:{
+    alignItems: "center",
+    backgroundColor: "#AB8262",
+    height: "6%",
+    justifyContent: "center",
+    marginTop: "15%",
+    width:"100%",
+  },
+  text: {
+    fontSize: 16,
+  },
+});
+
 export const stylesButton = StyleSheet.create({
   buttonContainer: {
     alignItems: "center",

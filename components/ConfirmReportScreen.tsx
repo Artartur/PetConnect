@@ -36,7 +36,7 @@ export default function ReportScreenConfirm() {
 
   const handleSubmit = () => {
     api
-      .post("http://192.168.1.108:3000/report", {
+      .post("http://192.168.1.64:3000/report", {
         animal: formData.animal,
         city: formData.address.city,
         description: formData.description,
