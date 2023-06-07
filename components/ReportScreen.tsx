@@ -17,8 +17,8 @@ import {
   ColorsOptions,
   InputModeOptions,
   KeyboardTypeOptions,
-} from "../types/enums";
-import { propsStack } from "../types/types";
+} from "../utils/enums";
+import { propsStack } from "../utils/types";
 import { stylesReport } from "../styles/styles";
 
 export default function ReportScreen() {

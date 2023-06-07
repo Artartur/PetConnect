@@ -7,12 +7,12 @@ import Button from "./Button";
 import InputWithIcon from "./InputWithIcon";
 
 import { stylesLogin } from "../styles/styles";
-import { propsStack } from "../types/types";
+import { propsStack } from "../utils/types";
 import {
   ColorsOptions,
   KeyboardTypeOptions,
   InputModeOptions,
-} from "../types/enums";
+} from "../utils/enums";
 
 export default function Login() {
   const [email, setEmail] = useState("");

@@ -6,7 +6,7 @@ import Header from "./Header";
 import Button from "./Button";
 
 import { stylesReportConfirm } from "../styles/styles";
-import { propsStack } from "../types/types";
+import { propsStack } from "../utils/types";
 
 interface FormData {
   animal: string;

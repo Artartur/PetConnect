@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 
 import { stylesHeader } from "../styles/styles";
-import { Headers, propsStack } from "../types/types";
+import { Headers, propsStack } from "../utils/types";
 
 export default function Header({ showIcon, text }: Headers) {
   const navigate = useNavigation<propsStack>();

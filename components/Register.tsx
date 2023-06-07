@@ -9,9 +9,9 @@ import {
   ColorsOptions,
   InputModeOptions,
   KeyboardTypeOptions,
-} from "../types/enums";
+} from "../utils/enums";
 import { stylesRegister } from "../styles/styles";
-import { propsStack } from "../types/types";
+import { propsStack } from "../utils/types";
 export default function Register() {
   const handleSubmit = () => {};
 

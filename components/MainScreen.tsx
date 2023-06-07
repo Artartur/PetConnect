@@ -5,9 +5,9 @@ import { useNavigation } from "@react-navigation/native";
 
 import Card from "./Card";
 import Header from "./Header";
-import { ColorsOptions } from "../types/enums";
+import { ColorsOptions } from "../utils/enums";
 import { stylesMainScreen } from "../styles/styles";
-import { propsStack } from "../types/types";
+import { propsStack } from "../utils/types";
 
 export default function MainScreen() {
   const iconRotation = [

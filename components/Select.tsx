@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import { Selects } from "../types/types";
+import { Selects } from "../utils/types";
 import { stylesSelect } from "../styles/styles";
 
 export default function Select({ containerStyle, fieldMapping, label, onChange, pickerStyle, value }: Selects) {

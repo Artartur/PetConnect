@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
 import { stylesButton } from "../styles/styles";
-import { Buttons } from "../types/types";
+import { Buttons } from "../utils/types";
 
 export default function ({
   buttonContainerStyle,

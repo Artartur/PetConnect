@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Header from "./Header";
 import Button from "./Button";
 import { stylesAdoption } from "../styles/styles";
-import { ColorsOptions } from "../types/enums";
+import { ColorsOptions } from "../utils/enums";
 import ModalComponent from "./Modals";
 
 interface Card {
