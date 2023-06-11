@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Alert, Image, Text, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Header from "./Header";
-import Button from "./Button";
-import { stylesAdoption } from "../styles/styles";
-import { ColorsOptions } from "../utils/enums";
-import ModalComponent from "./Modals";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import { stylesAdoption } from "../../styles/styles";
+import { ColorsOptions } from "../../utils/enums";
+import ModalComponent from "../components/Modals";
 
 interface Card {
   age: number;
@@ -40,7 +40,7 @@ export default function AdoptionScreen() {
         <Header showIcon={true} text={"Adotar"} />
         <View style={stylesAdoption.image}>
           <Image
-            source={require("../assets/caramelo.jpeg")}
+            source={require("../../assets/caramelo.jpeg")}
             style={{ width: 390, height: 300 }}
           />
           <Card

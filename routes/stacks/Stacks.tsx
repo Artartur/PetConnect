@@ -1,12 +1,12 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import AdoptionScreen from "../../components/AdoptionScreen";
-import ConfirmReportScreen from "../../components/ConfirmReportScreen";
-import Login from "../../components/Login";
-import MainScreen from "../../components/MainScreen";
-import Register from "../../components/Register";
-import ReportScreen from "../../components/ReportScreen";
+import AdoptionScreen from "../../components/screens/AdoptionScreen";
+import ConfirmReportScreen from "../../components/screens/ConfirmReportScreen";
+import Login from "../../components/screens/Login";
+import MainScreen from "../../components/screens/MainScreen";
+import Register from "../../components/screens/Register";
+import ReportScreen from "../../components/screens/ReportScreen";
 import { propsNavigationStack } from "../../utils/types";
 
 const { Navigator, Screen } = createStackNavigator<propsNavigationStack>();

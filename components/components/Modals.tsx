@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, View } from "react-native";
-import { Modals } from "../utils/types";
-import { stylesModal } from "../styles/styles";
+import { Modals } from "../../utils/types";
+import { stylesModal } from "../../styles/styles";
 import Button from "./Button";
 
 export default function ModalComponent({

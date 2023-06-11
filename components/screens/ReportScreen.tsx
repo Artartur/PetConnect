@@ -5,21 +5,21 @@ import * as ImagePicker from "expo-image-picker";
 import { Alert, ScrollView, StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import InputWithIcon from "./InputWithIcon";
-import Button from "./Button";
-import Header from "./Header";
-import Card from "./Card";
-import ModalComponent from "./Modals";
-import Select from "./Select";
+import InputWithIcon from "../components/InputWithIcon";
+import Button from "../components/Button";
+import Header from "../components/Header";
+import Card from "../components/Card";
+import ModalComponent from "../components/Modals";
+import Select from "../components/Select";
 
 import {
   Animals,
   ColorsOptions,
   InputModeOptions,
   KeyboardTypeOptions,
-} from "../utils/enums";
-import { propsStack } from "../utils/types";
-import { stylesReport } from "../styles/styles";
+} from "../../utils/enums";
+import { propsStack } from "../../utils/types";
+import { stylesReport } from "../../styles/styles";
 
 export default function ReportScreen() {
   const [buttonVisibility, setButtonVisibility] = useState({

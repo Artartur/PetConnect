@@ -1,12 +1,12 @@
 import React from "react";
 import { Alert, Image, Text, View } from "react-native";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
-import api from "../server/axios";
-import Header from "./Header";
-import Button from "./Button";
+import api from "../../server/axios";
+import Header from "../components/Header";
+import Button from "../components/Button";
 
-import { stylesReportConfirm } from "../styles/styles";
-import { propsStack } from "../utils/types";
+import { stylesReportConfirm } from "../../styles/styles";
+import { propsStack } from "../../utils/types";
 
 interface FormData {
   animal: string;

@@ -1,17 +1,17 @@
 import React from "react";
 import { Image, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import Button from "./Button";
-import Checkbox from "./Checkbox";
-import Header from "./Header";
-import InputWithIcon from "./InputWithIcon";
+import Button from "../components/Button";
+import Checkbox from "../components/Checkbox";
+import Header from "../components/Header";
+import InputWithIcon from "../components/InputWithIcon";
 import {
   ColorsOptions,
   InputModeOptions,
   KeyboardTypeOptions,
-} from "../utils/enums";
-import { stylesRegister } from "../styles/styles";
-import { propsStack } from "../utils/types";
+} from "../../utils/enums";
+import { stylesRegister } from "../../styles/styles";
+import { propsStack } from "../../utils/types";
 export default function Register() {
   const handleSubmit = () => {};
 
@@ -23,7 +23,7 @@ export default function Register() {
         <Header showIcon={true} text={"Cadastro"} />
         <Image
           style={stylesRegister.image}
-          source={require("../assets/logo.png")}
+          source={require("../../assets/logo.png")}
         />
         <InputWithIcon
           color={ColorsOptions.gray}

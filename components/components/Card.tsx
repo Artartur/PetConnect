@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { Cards } from "../utils/types";
-import { stylesCard } from "../styles/styles";
+import { Cards } from "../../utils/types";
+import { stylesCard } from "../../styles/styles";
 
 export default function Card({ containerStyle, children, onPress, text, viewStyle }: Cards) {
   

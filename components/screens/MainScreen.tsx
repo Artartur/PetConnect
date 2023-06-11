@@ -3,11 +3,11 @@ import { View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 
-import Card from "./Card";
-import Header from "./Header";
-import { ColorsOptions } from "../utils/enums";
-import { stylesMainScreen } from "../styles/styles";
-import { propsStack } from "../utils/types";
+import Card from "../components/Card";
+import Header from "../components/Header";
+import { ColorsOptions } from "../../utils/enums";
+import { stylesMainScreen } from "../../styles/styles";
+import { propsStack } from "../../utils/types";
 
 export default function MainScreen() {
   const iconRotation = [

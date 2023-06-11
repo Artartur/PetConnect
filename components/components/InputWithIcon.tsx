@@ -1,8 +1,8 @@
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { View, TextInput } from "react-native";
-import { stylesInput } from "../styles/styles";
-import { InputWithIcons } from "../utils/types";
+import { stylesInput } from "../../styles/styles";
+import { InputWithIcons } from "../../utils/types";
 
 const InputWithIcon = ({
   autoComplete,

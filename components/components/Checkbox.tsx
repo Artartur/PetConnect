@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
-import { stylesCheckbox } from "../styles/styles";
-import { Checkboxs } from "../utils/types";
+import { View, Text, TouchableOpacity } from "react-native";
+import { stylesCheckbox } from "../../styles/styles";
+import { Checkboxs } from "../../utils/types";
 
 export default function Checkbox({ text }: Checkboxs) {
   const [checked, setChecked] = useState(false);

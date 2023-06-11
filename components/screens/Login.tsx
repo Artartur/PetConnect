@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import Checkbox from "./Checkbox";
-import Button from "./Button";
-import InputWithIcon from "./InputWithIcon";
+import Checkbox from "../components/Checkbox";
+import Button from "../components/Button";
+import InputWithIcon from "../components/InputWithIcon";
 
-import { stylesLogin } from "../styles/styles";
-import { propsStack } from "../utils/types";
+import { stylesLogin } from "../../styles/styles";
+import { propsStack } from "../../utils/types";
 import {
   ColorsOptions,
   KeyboardTypeOptions,
   InputModeOptions,
-} from "../utils/enums";
+} from "../../utils/enums";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ export default function Login() {
     <>
       <View style={stylesLogin.container}>
         <View>
-          <Image source={require("../assets/logo.png")} />
+          <Image source={require("../../assets/logo.png")} />
         </View>
 
         <InputWithIcon
