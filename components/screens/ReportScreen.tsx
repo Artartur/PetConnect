@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
-import * as Location from "expo-location";
-import * as ImagePicker from "expo-image-picker";
 import { Alert, ScrollView, StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import InputWithIcon from "../components/InputWithIcon";
 import Button from "../components/Button";
 import Header from "../components/Header";
-import Card from "../components/Card";
 import ModalComponent from "../components/Modals";
 import Select from "../components/Select";
 
@@ -20,81 +16,29 @@ import {
 } from "../../utils/enums";
 import { propsStack } from "../../utils/types";
 import { stylesReport } from "../../styles/styles";
+import ImagePickerCard from "../components/ImagePickerCard";
+import LocationAddress from "../components/LocationAddress";
 
 export default function ReportScreen() {
-  const [buttonVisibility, setButtonVisibility] = useState({
-    firstButton: true,
-    secondButton: true,
-  });
-
   const [selectedImage, setSelectedImage] = useState("");
   const [data, setData] = useState({
-    address: {
-      city: "",
-      road: "",
-      suburb: "",
-    },
+    city: "",
     animal: "",
     description: "",
     email: "",
     name: "",
     phone: "",
     picture: selectedImage,
+    road: "",
+    suburb: "",
   });
 
-  const [showButtons, setShowButtons] = useState(false);
   const [modalVisibility, setModalVisibility] = useState(false);
 
   const navigate = useNavigation<propsStack>();
 
-  const fetchLocationAndAndress = async () => {
-    const { status } = await Location.requestForegroundPermissionsAsync();
-    if (status === "granted") {
-      try {
-        const location = await Location.getCurrentPositionAsync({});
-        const { latitude, longitude } = location.coords;
-        getAddressFromCoordinates(latitude, longitude);
-      } catch (err: any) {
-        Alert.alert(
-          "Ops! aconteceu um erro:",
-          "A solicitacao de localizacao foi negada, favor permitir ou apertar o botao para inserir manualmente o endereco"
-        );
-      }
-    }
-  };
-
-  const getAddressFromCoordinates = async (
-    latitude: number,
-    longitude: number
-  ) => {
-    try {
-      const response = await axios.get(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-      );
-      const data = response.data;
-      if (data && data.address && data.address.postcode) {
-        const { city, road, suburb } = data.address;
-        setData((prevData) => ({
-          ...prevData,
-          address: {
-            city: city || "",
-            road: road || "",
-            suburb: suburb || "",
-          },
-        }));
-      } else {
-        setData((prevData) => ({
-          ...prevData,
-          address: {
-            city: "Cidade não encontrada",
-            road: "Rua não encontrada",
-            suburb: "Bairro não encontrado",
-          },
-        }));
-      }
-    } catch (err) {
-      Alert.alert("Ops! aconteceu um erro: ", "Endereco nao encontrado");
-    }
+  const closeModal = () => {
+    setModalVisibility(false);
   };
 
   const handleInputChange = (name: string, value: string) => {
@@ -104,20 +48,25 @@ export default function ReportScreen() {
     }));
   };
 
-  const handleFirstButtonPress = () => {
-    setButtonVisibility({
-      firstButton: false,
-      secondButton: false,
-    });
-    fetchLocationAndAndress();
+  const handleLocationAddress = (
+    city: string,
+    road: string,
+    suburb: string
+  ) => {
+    setData((prevData) => ({
+      ...prevData,
+      city: city,
+      road: road,
+      suburb: suburb,
+    }));
   };
 
-  const handleSecondButtonPress = () => {
-    setButtonVisibility({
-      firstButton: false,
-      secondButton: false,
-    });
-    setShowButtons(true);
+  const handleSelectImage = (image: string) => {
+    setSelectedImage(image);
+    setData((prevData) => ({
+      ...prevData,
+      picture: image,
+    }));
   };
 
   const handleSelectChange = (value: string) => {
@@ -131,10 +80,6 @@ export default function ReportScreen() {
     setModalVisibility(true);
   };
 
-  const closeModal = () => {
-    setModalVisibility(false);
-  };
-
   const onSubmit = () => {
     if (data.name === "" || data.email === "" || data.phone === "") {
       Alert.alert("Preecha todos os campos obrigatorios");
@@ -142,61 +87,18 @@ export default function ReportScreen() {
     }
 
     const formData = {
-      address: {
-        city: data.address.city,
-        road: data.address.road,
-        suburb: data.address.suburb,
-      },
+      city: data.city,
       animal: data.animal,
       description: data.description,
       email: data.email,
       name: data.name,
       phone: data.phone,
       picture: selectedImage,
+      road: data.road,
+      suburb: data.suburb,
     };
 
     navigate.navigate("ConfirmReportScreen", { formData });
-  };
-
-  const pickImage = async () => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert(
-        "Ops! aconteceu um erro",
-        "A solicitacao para acessar sua galeira foi recusada, por favor aceite"
-      );
-      return;
-    }
-    const result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
-      aspect: [200, 200],
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1,
-    });
-
-    if (!result.canceled) {
-      setSelectedImage(result.assets[0].uri);
-    }
-  };
-
-  const takePhoto = async () => {
-    const { status } = await ImagePicker.requestCameraPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert(
-        "Ops! aconteceu um erro",
-        "A solicitacao para acessar sua galeira foi recusada, por favor aceite"
-      );
-      return;
-    }
-    const result = await ImagePicker.launchCameraAsync({
-      allowsEditing: true,
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1,
-    });
-
-    if (!result.canceled) {
-      setSelectedImage(result.assets[0].uri);
-    }
   };
 
   const mappingAnimals = [
@@ -261,46 +163,6 @@ export default function ReportScreen() {
               value={data.animal}
             />
 
-            {showButtons && (
-              <>
-                <InputWithIcon
-                  color={ColorsOptions.gray}
-                  containerStyle={style.input}
-                  name={"location"}
-                  onChangeText={(value: string) =>
-                    handleInputChange("road", value)
-                  }
-                  placeholder={"Rua"}
-                  size={20}
-                  value={data.address.road}
-                />
-
-                <InputWithIcon
-                  color={ColorsOptions.gray}
-                  containerStyle={style.input}
-                  name={"location"}
-                  onChangeText={(value: string) =>
-                    handleInputChange("suburb", value)
-                  }
-                  placeholder={"Bairro"}
-                  size={20}
-                  value={data.address.suburb}
-                />
-
-                <InputWithIcon
-                  color={ColorsOptions.gray}
-                  containerStyle={style.input}
-                  name={"location"}
-                  onChangeText={(value: string) =>
-                    handleInputChange("city", value)
-                  }
-                  placeholder={"Cidade"}
-                  size={20}
-                  value={data.address.city}
-                />
-              </>
-            )}
-
             <InputWithIcon
               color={ColorsOptions.gray}
               containerStyle={style.input}
@@ -314,39 +176,11 @@ export default function ReportScreen() {
               size={20}
               value={data.description}
             />
-
+            <LocationAddress onSelectLocation={handleLocationAddress} />
             <View style={stylesReport.buttons}>
-              {buttonVisibility.firstButton && (
-                <Button
-                  buttonContainerStyle={style.buttonContainer}
-                  buttonTextStyle={style.buttonText}
-                  onPress={handleFirstButtonPress}
-                  text={"Inserir endereço com a localizaçao atual"}
-                />
-              )}
-
-              {buttonVisibility.secondButton && (
-                <Button
-                  buttonContainerStyle={style.buttonContainer}
-                  buttonTextStyle={style.buttonText}
-                  onPress={handleSecondButtonPress}
-                  text={"Inserir endereço manualmente"}
-                />
-              )}
-
               {modalVisibility && (
                 <ModalComponent visible={true} onClose={closeModal}>
-                  <Card
-                    containerStyle={style.containerCard}
-                    onPress={pickImage}
-                    text="Carregar Imagem"
-                  />
-
-                  <Card
-                    containerStyle={style.containerCard}
-                    onPress={takePhoto}
-                    text="Tirar Foto"
-                  />
+                  <ImagePickerCard onSelectImage={handleSelectImage} />
                 </ModalComponent>
               )}
 
