@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { View, TextInput } from "react-native";
 import { stylesInput } from "../../styles/styles";
@@ -24,6 +24,8 @@ const InputWithIcon = ({
   value,
   ...OtherProps
 }: InputWithIcons) => {
+  const [inputValue, setInputValue] = useState(value);
+
   const validateSize = (field: number | undefined): number | undefined => {
     return field === null || field === undefined ? 24 : field;
   };
@@ -32,6 +34,13 @@ const InputWithIcon = ({
     return field === "" || field === undefined || field === null
       ? "gray"
       : field;
+  };
+
+  const handleInputChange = (text: string) => {
+    setInputValue(text);
+    if (onChangeText) {
+      onChangeText(text);
+    }
   };
 
   const styleContainer = [stylesInput.container, containerStyle];
@@ -48,11 +57,11 @@ const InputWithIcon = ({
           maxLength={maxLength}
           multiline={multiline}
           numberOfLines={numberOfLines}
-          onChangeText={onChangeText}
+          onChangeText={handleInputChange}
           keyboardType={keyboardType}
           placeholder={placeholder}
           style={styleInput}
-          value={value}
+          value={inputValue}
         />
 
         <Ionicons
