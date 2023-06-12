@@ -6,20 +6,17 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 
 import { stylesReportConfirm } from "../../styles/styles";
-import { propsStack } from "../../utils/types";
 
 interface FormData {
   animal: string;
-  address: {
-    road: string;
-    suburb: string;
-    city: string;
-  };
+  city: string;
   email: string;
   name: string;
   phone: string;
   description: string;
   picture: string;
+  road: string;
+  suburb: string;
 }
 
 type RootStackParamList = {
@@ -29,7 +26,6 @@ type RootStackParamList = {
 type ReportConfirmRouteProp = RouteProp<RootStackParamList, "ReportConfirm">;
 
 export default function ReportScreenConfirm() {
-  const navigate = useNavigation<propsStack>();
   const route = useRoute<ReportConfirmRouteProp>();
   const { formData } = route.params;
   const { picture } = formData;
@@ -38,14 +34,14 @@ export default function ReportScreenConfirm() {
     api
       .post("http://localhost:3000/report", {
         animal: formData.animal,
-        city: formData.address.city,
+        city: formData.city,
         description: formData.description,
         email: formData.email,
         name: formData.name,
         phone: formData.phone,
         picture: picture,
-        road: formData.address.road,
-        suburb: formData.address.suburb,
+        road: formData.road,
+        suburb: formData.suburb,
       })
       .then((res) => {
         Alert.alert("Denuncia feita com sucesso");
