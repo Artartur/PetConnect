@@ -2,9 +2,11 @@ import React from "react";
 import { Alert, Image, Text, View } from "react-native";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import api from "../../server/axios";
-import Header from "../components/Header";
-import Button from "../components/Button";
 
+import Button from "../components/Button";
+import Header from "../components/Header";
+
+import { propsStack } from "../../utils/types";
 import { stylesReportConfirm } from "../../styles/styles";
 
 interface FormData {
@@ -26,6 +28,7 @@ type RootStackParamList = {
 type ReportConfirmRouteProp = RouteProp<RootStackParamList, "ReportConfirm">;
 
 export default function ReportScreenConfirm() {
+  const navigate = useNavigation<propsStack>();
   const route = useRoute<ReportConfirmRouteProp>();
   const { formData } = route.params;
   const { picture } = formData;
@@ -43,8 +46,9 @@ export default function ReportScreenConfirm() {
         road: formData.road,
         suburb: formData.suburb,
       })
-      .then((res) => {
+      .then(() => {
         Alert.alert("Denuncia feita com sucesso");
+        navigate.navigate("MainScreen")
       })
       .catch((err) => {
         console.log(err);
