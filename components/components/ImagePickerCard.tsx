@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Alert, StyleSheet } from "react-native";
 import * as ImagePicker from "expo-image-picker";
+
 import Card from "./Card";
 
 export default function ImagePickerCard({ onSelectImage }: { onSelectImage: (image: string, value:string) => void }) {

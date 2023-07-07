@@ -61,7 +61,7 @@ export default function ReportScreenConfirm() {
         <Header showIcon={true} text={"Detalhes da Denuncia"} />
         <View style={stylesReportConfirm.content}>
           <View style={stylesReportConfirm.contentDatas}>
-            <View style={stylesReportConfirm.column}>
+            <View>
               <Text style={stylesReportConfirm.title}>Nome:</Text>
               <Text style={stylesReportConfirm.data}>{formData.name}</Text>
               <Text style={stylesReportConfirm.title}>Numero:</Text>
@@ -69,7 +69,7 @@ export default function ReportScreenConfirm() {
               <Text style={stylesReportConfirm.title}>Email</Text>
               <Text>{formData.email}</Text>
             </View>
-            <View style={stylesReportConfirm.column}>
+            <View>
               <Text style={stylesReportConfirm.title}>Numero da denuncia:</Text>
               <Text style={stylesReportConfirm.data}></Text>
               <Text style={stylesReportConfirm.title}>Especie de Animal:</Text>

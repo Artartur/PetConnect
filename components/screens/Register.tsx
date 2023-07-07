@@ -1,10 +1,12 @@
 import React from "react";
 import { Image, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
 import Button from "../components/Button";
 import Checkbox from "../components/Checkbox";
 import Header from "../components/Header";
 import InputWithIcon from "../components/InputWithIcon";
+
 import {
   ColorsOptions,
   InputModeOptions,
@@ -12,8 +14,8 @@ import {
 } from "../../utils/enums";
 import { stylesRegister } from "../../styles/styles";
 import { propsStack } from "../../utils/types";
+
 export default function Register() {
-  const handleSubmit = () => {};
 
   const navigate = useNavigation<propsStack>();
 

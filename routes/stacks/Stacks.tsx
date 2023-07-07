@@ -7,6 +7,7 @@ import Login from "../../components/screens/Login";
 import MainScreen from "../../components/screens/MainScreen";
 import Register from "../../components/screens/Register";
 import ReportScreen from "../../components/screens/ReportScreen";
+
 import { propsNavigationStack } from "../../utils/types";
 
 const { Navigator, Screen } = createStackNavigator<propsNavigationStack>();

@@ -1,27 +1,29 @@
 import React from "react";
 import { Modal, View } from "react-native";
-import { Modals } from "../../utils/types";
-import { stylesModal } from "../../styles/styles";
+
 import Button from "./Button";
 
+import { Modals } from "../../utils/types";
+import { stylesModal } from "../../styles/styles";
+
 export default function ModalComponent({
+  buttonText,
   children,
   onClose,
-  buttonText,
   visible,
 }: Modals) {
   return (
     <>
       <Modal
-        visible={visible}
         animationType="slide"
-        transparent={true}
         onRequestClose={onClose}
+        transparent={true}
+        visible={visible}
       >
         <View style={stylesModal.container}>
           <View style={stylesModal.content}>
             <View style={stylesModal.childrenContainer}>{children}</View>
-            <Button text={buttonText || "Fechar"} onPress={onClose} />
+            <Button onPress={onClose} text={buttonText || "Fechar"} />
           </View>
         </View>
       </Modal>

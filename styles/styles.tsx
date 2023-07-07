@@ -2,11 +2,12 @@ import { StatusBar, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
     backgroundColor: "#fff",
+    flex: 1,
     justifyContent: "center",
   },
+
 });
 
 export const stylesAdoption = StyleSheet.create({
@@ -30,6 +31,7 @@ export const stylesAdoption = StyleSheet.create({
     width: "80%",
     zIndex: 1,
   },
+
   container: {
     alignItems: "center",
     flex: 1,
@@ -37,7 +39,8 @@ export const stylesAdoption = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     textAlign: "center",
   },
-  description:{
+
+  description: {
     alignItems: "center",
     borderBottomColor: "#AB8262",
     borderBottomWidth: 1,
@@ -46,28 +49,33 @@ export const stylesAdoption = StyleSheet.create({
     textAlign: "center",
     width: "90%",
   },
+
   image: {
     justifyContent: "center",
     marginTop: "15%",
   },
-  informations:{
+
+  informations: {
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-evenly",
     marginTop: "5%",
     width: "110%",
   },
-  label:{
+
+  label: {
     alignItems: "center",
     backgroundColor: "#AB8262",
     height: "6%",
     justifyContent: "center",
     marginTop: "15%",
-    width:"100%",
+    width: "100%",
   },
+
   text: {
     fontSize: 16,
   },
+
 });
 
 export const stylesButton = StyleSheet.create({
@@ -85,6 +93,7 @@ export const stylesButton = StyleSheet.create({
     color: "white",
     fontSize: 18,
   },
+
 });
 
 export const stylesCard = StyleSheet.create({
@@ -98,7 +107,13 @@ export const stylesCard = StyleSheet.create({
     marginVertical: "10%",
     width: "60%",
   },
-  view: { alignItems: "center", flexDirection: "column", textAlign: "center" },
+
+  view: { 
+    alignItems: "center", 
+    flexDirection: "column", 
+    textAlign: "center", 
+},
+
 });
 
 export const stylesCheckbox = StyleSheet.create({
@@ -115,6 +130,7 @@ export const stylesCheckbox = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
   },
+
 });
 
 export const stylesHeader = StyleSheet.create({
@@ -140,6 +156,7 @@ export const stylesHeader = StyleSheet.create({
     textAlign: "center",
     fontSize: 18,
   },
+
 });
 
 export const stylesInput = StyleSheet.create({
@@ -164,6 +181,7 @@ export const stylesInput = StyleSheet.create({
     paddingHorizontal: 12,
     width: "80%",
   },
+
 });
 
 export const stylesLogin = StyleSheet.create({
@@ -190,24 +208,28 @@ export const stylesLogin = StyleSheet.create({
   text: {
     fontSize: 18,
   },
+
 });
 
 export const stylesMainScreen = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
+    flex: 1,
     flexDirection: "column",
     justifyContent: "center",
     marginTop: StatusBar.currentHeight || 0,
     textAlign: "center",
     width: "100%",
   },
+
   icon: {
     marginBottom: 10,
   },
+
   navigator: {
     width: "90%",
   },
+
 });
 
 export const stylesModal = StyleSheet.create({
@@ -217,6 +239,7 @@ export const stylesModal = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
+
   content: {
     alignItems: "center",
     backgroundColor: "white",
@@ -224,12 +247,14 @@ export const stylesModal = StyleSheet.create({
     height: "60%",
     width: "80%",
   },
+
   childrenContainer: {
     alignItems: "center",
     justifyContent: "center",
     height: "80%",
     width: "80%",
   },
+
 });
 
 export const stylesRegister = StyleSheet.create({
@@ -241,14 +266,17 @@ export const stylesRegister = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     width: "100%",
   },
+
   image: {
-    width: 250,
     height: 250,
+    width: 250,
   },
+
   checkbox: {
     justifyContent: "flex-start",
     width: "80%",
   },
+
 });
 
 export const stylesReport = StyleSheet.create({
@@ -273,6 +301,7 @@ export const stylesReport = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
   },
+
 });
 
 export const stylesReportConfirm = StyleSheet.create({
@@ -284,6 +313,7 @@ export const stylesReportConfirm = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     width: "100%",
   },
+
   content: {
     alignItems: "center",
     justifyContent: "center",
@@ -291,7 +321,7 @@ export const stylesReportConfirm = StyleSheet.create({
     height: "80%",
     width: "90%",
   },
-  column: {},
+
   contentDatas: {
     justifyContent: "center",
     flexDirection: "row",
@@ -300,6 +330,7 @@ export const stylesReportConfirm = StyleSheet.create({
     width: "100%",
     height: "30%",
   },
+
   contentDescription: {
     justifyContent: "flex-start",
     flexDirection: "column",
@@ -309,12 +340,15 @@ export const stylesReportConfirm = StyleSheet.create({
     height: "20%",
     marginBottom: "10%",
   },
+
   data: {
     marginBottom: 10,
   },
+
   title: {
     fontSize: 16,
   },
+
 });
 
 export const stylesSelect = StyleSheet.create({
@@ -325,12 +359,14 @@ export const stylesSelect = StyleSheet.create({
     marginVertical: "4%",
     width: "100%",
   },
+
   picker: {
     backgroundColor: "#C4C4C433",
-    marginRight: "3%",
     borderRadius: 12,
     fontSize: 16,
     height: 60,
+    marginRight: "3%",
     width: "79%",
   },
+
 });

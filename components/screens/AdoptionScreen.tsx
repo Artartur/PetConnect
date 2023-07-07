@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Alert, Image, Text, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+
 import Header from "../components/Header";
 import Button from "../components/Button";
+import ModalComponent from "../components/Modals";
+
 import { stylesAdoption } from "../../styles/styles";
 import { ColorsOptions } from "../../utils/enums";
-import ModalComponent from "../components/Modals";
 
 interface Card {
   age: number;

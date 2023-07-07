@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import Card from "../components/Card";
 import Header from "../components/Header";
+
 import { ColorsOptions } from "../../utils/enums";
 import { stylesMainScreen } from "../../styles/styles";
 import { propsStack } from "../../utils/types";

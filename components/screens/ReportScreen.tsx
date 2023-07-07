@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Alert, ScrollView, StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import InputWithIcon from "../components/InputWithIcon";
 import Button from "../components/Button";
 import Header from "../components/Header";
+import ImagePickerCard from "../components/ImagePickerCard";
+import InputWithIcon from "../components/InputWithIcon";
+import LocationAddress from "../components/LocationAddress";
 import ModalComponent from "../components/Modals";
 import Select from "../components/Select";
 
@@ -16,8 +18,6 @@ import {
 } from "../../utils/enums";
 import { propsStack } from "../../utils/types";
 import { stylesReport } from "../../styles/styles";
-import ImagePickerCard from "../components/ImagePickerCard";
-import LocationAddress from "../components/LocationAddress";
 
 export default function ReportScreen() {
   const [selectedImage, setSelectedImage] = useState("");

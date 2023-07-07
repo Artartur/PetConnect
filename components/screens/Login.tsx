@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import Checkbox from "../components/Checkbox";
 import Button from "../components/Button";
+import Checkbox from "../components/Checkbox";
 import InputWithIcon from "../components/InputWithIcon";
 
 import { stylesLogin } from "../../styles/styles";

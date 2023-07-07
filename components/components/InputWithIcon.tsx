@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { View, TextInput } from "react-native";
-import { stylesInput } from "../../styles/styles";
+
 import { InputWithIcons } from "../../utils/types";
+import { stylesInput } from "../../styles/styles";
 
 const InputWithIcon = ({
   autoComplete,
@@ -26,14 +27,14 @@ const InputWithIcon = ({
 }: InputWithIcons) => {
   const [inputValue, setInputValue] = useState(value);
 
-  const validateSize = (field: number | undefined): number | undefined => {
-    return field === null || field === undefined ? 24 : field;
-  };
-
   const validateColor = (field: string | undefined): string | undefined => {
     return field === "" || field === undefined || field === null
       ? "gray"
       : field;
+  };
+
+  const validateSize = (field: number | undefined): number | undefined => {
+    return field === null || field === undefined ? 24 : field;
   };
 
   const handleInputChange = (text: string) => {
@@ -44,8 +45,8 @@ const InputWithIcon = ({
   };
 
   const styleContainer = [stylesInput.container, containerStyle];
-  const styleInput = [stylesInput.textInput, textInputStyle];
   const styleIcon = [stylesInput.icon, iconStyle];
+  const styleInput = [stylesInput.textInput, textInputStyle];
 
   return (
     <>
