@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
-
 });
 
 export const stylesAdoption = StyleSheet.create({
@@ -75,7 +74,6 @@ export const stylesAdoption = StyleSheet.create({
   text: {
     fontSize: 16,
   },
-
 });
 
 export const stylesButton = StyleSheet.create({
@@ -93,7 +91,6 @@ export const stylesButton = StyleSheet.create({
     color: "white",
     fontSize: 18,
   },
-
 });
 
 export const stylesCard = StyleSheet.create({
@@ -108,12 +105,11 @@ export const stylesCard = StyleSheet.create({
     width: "60%",
   },
 
-  view: { 
-    alignItems: "center", 
-    flexDirection: "column", 
-    textAlign: "center", 
-},
-
+  view: {
+    alignItems: "center",
+    flexDirection: "column",
+    textAlign: "center",
+  },
 });
 
 export const stylesCheckbox = StyleSheet.create({
@@ -130,7 +126,6 @@ export const stylesCheckbox = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
   },
-
 });
 
 export const stylesHeader = StyleSheet.create({
@@ -156,7 +151,6 @@ export const stylesHeader = StyleSheet.create({
     textAlign: "center",
     fontSize: 18,
   },
-
 });
 
 export const stylesInput = StyleSheet.create({
@@ -181,7 +175,6 @@ export const stylesInput = StyleSheet.create({
     paddingHorizontal: 12,
     width: "80%",
   },
-
 });
 
 export const stylesLogin = StyleSheet.create({
@@ -208,7 +201,6 @@ export const stylesLogin = StyleSheet.create({
   text: {
     fontSize: 18,
   },
-
 });
 
 export const stylesMainScreen = StyleSheet.create({
@@ -229,7 +221,6 @@ export const stylesMainScreen = StyleSheet.create({
   navigator: {
     width: "90%",
   },
-
 });
 
 export const stylesModal = StyleSheet.create({
@@ -254,7 +245,6 @@ export const stylesModal = StyleSheet.create({
     height: "80%",
     width: "80%",
   },
-
 });
 
 export const stylesRegister = StyleSheet.create({
@@ -276,7 +266,6 @@ export const stylesRegister = StyleSheet.create({
     justifyContent: "flex-start",
     width: "80%",
   },
-
 });
 
 export const stylesReport = StyleSheet.create({
@@ -301,7 +290,6 @@ export const stylesReport = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
   },
-
 });
 
 export const stylesReportConfirm = StyleSheet.create({
@@ -348,7 +336,6 @@ export const stylesReportConfirm = StyleSheet.create({
   title: {
     fontSize: 16,
   },
-
 });
 
 export const stylesSelect = StyleSheet.create({
@@ -368,5 +355,31 @@ export const stylesSelect = StyleSheet.create({
     marginRight: "3%",
     width: "79%",
   },
+});
 
+export const stylesStatus = StyleSheet.create({
+  column:{
+    marginRight: 30,  
+  },
+  
+  container: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    marginTop: StatusBar.currentHeight || 0,
+    width: "100%",
+  },
+
+  content: {
+    alignItems: "center",
+    marginTop: (StatusBar.currentHeight && "20%") || 0,
+    justifyContent: "center",
+    width: "100%",
+  },
+
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 });

@@ -7,6 +7,7 @@ import Login from "../../components/screens/Login";
 import MainScreen from "../../components/screens/MainScreen";
 import Register from "../../components/screens/Register";
 import ReportScreen from "../../components/screens/ReportScreen";
+import StatusScreen from "../../components/screens/StatusScreen";
 
 import { propsNavigationStack } from "../../utils/types";
 
@@ -22,6 +23,7 @@ export default function Stacks() {
         <Screen name={"MainScreen"} component={MainScreen} />
         <Screen name={"Register"} component={Register} />
         <Screen name={"ReportScreen"} component={ReportScreen} />
+        <Screen name={"StatusScreen"} component={StatusScreen} />
       </Navigator>
     </>
   );

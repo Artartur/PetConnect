@@ -41,7 +41,7 @@ export default function MainScreen() {
           />
         </Card>
 
-        <Card text={"Status de animais reportados"}>
+        <Card onPress={()=>navigate.navigate("StatusScreen")} text={"Status de animais reportados"}>
           <Ionicons
             style={stylesMainScreen.icon}
             name={"analytics"}

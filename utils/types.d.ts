@@ -11,7 +11,7 @@ export interface Cards {
   containerStyle?: any;
   children?: JSX.Element | JSX.Element[];
   onPress?: (params: any) => void;
-  text: string;
+  text?: string;
   viewStyle?: any;
 }
 
@@ -64,6 +64,7 @@ export type propsNavigationStack = {
   MainScreen: undefined;
   Register: undefined;
   ReportScreen: undefined;
+  StatusScreen: undefined;
 };
 
 export type propsStack = StackNavigationEventMap<propsNavigationStack>;
