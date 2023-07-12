@@ -16,6 +16,19 @@ const db = new Pool({
 
 app.use(express.json());
 
+app.get("/reports", (req, res) => {
+  let sql = "SELECT * FROM Report;";
+
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error("Error: ", err);
+      res.status(500).send("Error getting reports");
+    } else {
+      res.status(200).send(result.rows);
+    }
+  });
+});
+
 app.post("/report", (req, res) => {
   const {
     animal,
