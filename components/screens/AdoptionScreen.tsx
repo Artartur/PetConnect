@@ -1,21 +1,29 @@
 import React, { useState } from "react";
-import { Alert, Image, Text, View } from "react-native";
+import { Alert, Image, ScrollView, Text, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import Header from "../components/Header";
 import Button from "../components/Button";
+import Header from "../components/Header";
 import ModalComponent from "../components/Modals";
 
+import animals from "../../utils/animals.json";
 import { stylesAdoption } from "../../styles/styles";
 import { ColorsOptions } from "../../utils/enums";
 
 interface Card {
   age: number;
-  color: string;
+  breed: string;
+  color: string | undefined;
   icon: keyof typeof Ionicons.glyphMap;
   name: string;
-  raca: string;
 }
+
+const imagesPath: { [key: string]: any } = {
+  Bela: require("../../assets/Bela.jpg"),
+  Bob: require("../../assets/Bob.jpeg"),
+  Jorge: require("../../assets/Jorge.jpg"),
+  Rafinha: require("../../assets/Rafinha.jpg"),
+};
 
 export default function AdoptionScreen() {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -26,6 +34,10 @@ export default function AdoptionScreen() {
       "Ihuuu!!!",
       "Enviaremos para voce um email onde voce devera ir para conhecer seu novo melhor amigo."
     );
+  };
+
+  const getImagePath = (image: string) => {
+    return imagesPath[image];
   };
 
   const handleSubmit = () => {
@@ -40,70 +52,90 @@ export default function AdoptionScreen() {
     <>
       <View style={stylesAdoption.container}>
         <Header showIcon={true} text={"Adotar"} />
-        <View style={stylesAdoption.image}>
-          <Image
-            source={require("../../assets/caramelo.jpeg")}
-            style={{ width: 390, height: 300 }}
-          />
-          <Card
-            age={7}
-            color={ColorsOptions.blue}
-            icon={"male"}
-            name={"Bob"}
-            raca={"Vira-lata"}
-          />
+        <View style={stylesAdoption.content}>
+          <ScrollView
+            horizontal={true}
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            style={{ width: "100%" }}
+          >
+            {animals.map((item) => {
+              return (
+                <View
+                  key={item.id}
+                  style={{ alignItems: "center", marginRight: 3 }}
+                >
+                  <Image
+                    source={getImagePath(item.image)}
+                    style={{ width: 390, height: 300 }}
+                  />
+                  <Card
+                    age={item.age}
+                    color={item.color}
+                    icon={item.icon}
+                    name={item.name}
+                    breed={item.breed}
+                  />
+                  <View style={stylesAdoption.label}>
+                    <Text style={{ fontSize: 20 }}>Conheça {item.name}!</Text>
+                  </View>
+                  <View style={stylesAdoption.description}>
+                    <Text>{item.description}</Text>
+                  </View>
+                  <View style={stylesAdoption.informations}>
+                    <View>
+                      <Text style={stylesAdoption.text}>Tipo: {item.type}</Text>
+                      <Text style={stylesAdoption.text}>
+                        Raca: {item.breed}
+                      </Text>
+                      <Text style={stylesAdoption.text}>
+                        Porte: {item.size}
+                      </Text>
+                    </View>
+                    <View>
+                      <View style={stylesAdoption.age}>
+                        <Text style={[stylesAdoption.text, { marginRight: 5 }]}>
+                          Vacinado
+                        </Text>
+                        <Ionicons
+                          color={ColorsOptions.gray}
+                          name={"checkmark"}
+                          size={20}
+                          style={{ marginRight: 2 }}
+                        />
+                      </View>
+                      <View style={stylesAdoption.age}>
+                        <Text style={[stylesAdoption.text, { marginRight: 5 }]}>
+                          Castrado
+                        </Text>
+                        <Text
+                          style={[
+                            stylesAdoption.text,
+                            { color: ColorsOptions.gray },
+                          ]}
+                        >
+                          X
+                        </Text>
+                      </View>
+                      <View style={stylesAdoption.age}>
+                        <Text style={[stylesAdoption.text, { marginRight: 5 }]}>
+                          Vermifugado
+                        </Text>
+                        <Ionicons
+                          color={ColorsOptions.gray}
+                          name={"checkmark"}
+                          size={20}
+                          style={{ marginRight: 2 }}
+                        />
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              );
+            })}
+          </ScrollView>
         </View>
-        <View style={stylesAdoption.label}>
-          <Text style={{ fontSize: 20 }}>Conheça Bob!</Text>
-        </View>
-        <View style={stylesAdoption.description}>
-          <Text>
-            Sou um cachorro bem sapeca, não tenho uma raça definida e tenho
-            muito amor para dar. Tenho 7 anos. Sou vacinado, vermifugado e
-            felizmente não tenho nenhuma doença. Adoro brincar jogando bolinha.
-          </Text>
-        </View>
-        <View style={stylesAdoption.informations}>
-          <View>
-            <Text style={stylesAdoption.text}>Tipo: Cachorro</Text>
-            <Text style={stylesAdoption.text}>Raca: Vira-lata</Text>
-            <Text style={stylesAdoption.text}>Porte: Medio</Text>
-          </View>
-          <View>
-            <View style={stylesAdoption.age}>
-              <Text style={[stylesAdoption.text, { marginRight: 5 }]}>
-                Vacinado
-              </Text>
-              <Ionicons
-                color={ColorsOptions.gray}
-                name={"checkmark"}
-                size={20}
-                style={{ marginRight: 2 }}
-              />
-            </View>
-            <View style={stylesAdoption.age}>
-              <Text style={[stylesAdoption.text, { marginRight: 5 }]}>
-                Castrado
-              </Text>
-              <Text
-                style={[stylesAdoption.text, { color: ColorsOptions.gray }]}
-              >
-                X
-              </Text>
-            </View>
-            <View style={stylesAdoption.age}>
-              <Text style={[stylesAdoption.text, { marginRight: 5 }]}>
-                Vermifugado
-              </Text>
-              <Ionicons
-                color={ColorsOptions.gray}
-                name={"checkmark"}
-                size={20}
-                style={{ marginRight: 2 }}
-              />
-            </View>
-          </View>
-        </View>
+
         {modalVisibility && (
           <ModalComponent
             buttonText="Adotar"
@@ -145,13 +177,13 @@ export default function AdoptionScreen() {
   );
 }
 
-const Card = ({ age, color, icon, name, raca }: Card) => {
+const Card = ({ age, breed, color, icon, name }: Card) => {
   return (
     <>
       <View style={stylesAdoption.card}>
         <View>
           <Text style={stylesAdoption.text}>{name}</Text>
-          <Text style={stylesAdoption.text}>{raca}</Text>
+          <Text style={stylesAdoption.text}>{breed}</Text>
         </View>
         <View>
           <Ionicons color={color} name={icon} size={20} />

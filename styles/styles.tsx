@@ -26,7 +26,7 @@ export const stylesAdoption = StyleSheet.create({
     height: 70,
     left: "9%",
     position: "absolute",
-    top: "87%",
+    top: "44%",
     width: "80%",
     zIndex: 1,
   },
@@ -39,14 +39,23 @@ export const stylesAdoption = StyleSheet.create({
     textAlign: "center",
   },
 
+  content: {
+    height: 600,
+    alignItems: "center",
+    marginTop: (StatusBar.currentHeight && "20%") || 0,
+    justifyContent: "center",
+    width: "100%",
+  },
+
   description: {
     alignItems: "center",
     borderBottomColor: "#AB8262",
     borderBottomWidth: 1,
     height: 100,
-    marginTop: "10%",
+    marginBottom: 15,
+    marginTop: 10,
     textAlign: "center",
-    width: "90%",
+    width: 350,
   },
 
   image: {
@@ -58,17 +67,17 @@ export const stylesAdoption = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    marginTop: "5%",
-    width: "110%",
+    marginTop: 5,
+    width: 350,
   },
 
   label: {
     alignItems: "center",
     backgroundColor: "#AB8262",
-    height: "6%",
+    height: 30,
     justifyContent: "center",
-    marginTop: "15%",
-    width: "100%",
+    marginTop: 50,
+    width: "95%",
   },
 
   text: {
