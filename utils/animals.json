@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "age": 7,
+    "breed": "Vira-lata",
+    "color": "blue",
+    "description": "Sou um cachorro bem sapeca, não tenho uma raça definida e tenho muito amor para dar. Tenho 7 anos. Sou vacinado, vermifugado e felizmente não tenho nenhuma doença. Adoro brincar jogando bolinha.",
+    "icon": "male",
+    "image": "Bob",
+    "name": "Bob",
+    "size": "Medio",
+    "type": "Canino"
+  },
+  {
+    "id": "2",
+    "age": 3,
+    "breed": "Pelo curto americano",
+    "color": "pink",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "icon": "female",
+    "image": "Bela",
+    "name": "Bela",
+    "size": "Pequeno",
+    "type": "Felino"
+  },
+  {
+    "id": "3",
+    "age": 5,
+    "breed": "Golden",
+    "color": "blue",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "icon": "male",
+    "image": "Jorge",
+    "name": "Jorge",
+    "size": "Grande",
+    "type": "Canino"
+  },
+  {
+    "id": "4",
+    "age": 4,
+    "breed": "Poedeira",
+    "color": "pink",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "icon": "female",
+    "image": "Rafinha",
+    "name": "Rafinha",
+    "size": "Medio",
+    "type": "Aviario"
+  }
+]
