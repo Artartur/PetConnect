@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import Header from "../components/Header";
 
 import { propsStack } from "../../utils/types";
+import { reportAPI } from "../../server/reportAPI";
 import { stylesReportConfirm } from "../../styles/styles";
 
 interface FormData {
@@ -29,11 +30,10 @@ type ReportConfirmRouteProp = RouteProp<RootStackParamList, "ReportConfirm">;
 
 export default function ReportScreenConfirm() {
   const navigate = useNavigation<propsStack>();
-  const reportAPI = "https://petconnect-server-side.onrender.com/reports"
   const route = useRoute<ReportConfirmRouteProp>();
   const { formData } = route.params;
   const { picture } = formData;
-  
+
   const handleSubmit = () => {
     api
       .post(reportAPI, {

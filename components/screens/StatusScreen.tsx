@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
 
+import { reportAPI } from "../../server/reportAPI";
 import { stylesStatus } from "../../styles/styles";
 
 interface ReportDatas {
@@ -19,8 +20,6 @@ interface ReportDatas {
 export default function StatusScreen() {
   const [data, setData] = useState<ReportDatas[]>([]);
   const [loading, setLoading] = useState(true);
-
-  const reportAPI = "https://petconnect-server-side.onrender.com/reports"
 
   const getReports = () => {
     axios
