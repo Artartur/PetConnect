@@ -29,22 +29,23 @@ type ReportConfirmRouteProp = RouteProp<RootStackParamList, "ReportConfirm">;
 
 export default function ReportScreenConfirm() {
   const navigate = useNavigation<propsStack>();
+  const reportAPI = "https://petconnect-server-side.onrender.com/reports"
   const route = useRoute<ReportConfirmRouteProp>();
   const { formData } = route.params;
   const { picture } = formData;
-
+  
   const handleSubmit = () => {
     api
-      .post("http://localhost:3000/report", {
-        animal: formData.animal,
-        city: formData.city,
-        description: formData.description,
-        email: formData.email,
-        name: formData.name,
-        phone: formData.phone,
-        picture: picture,
-        road: formData.road,
-        suburb: formData.suburb,
+      .post(reportAPI, {
+        Animal: formData.animal,
+        City: formData.city,
+        Description: formData.description,
+        Email: formData.email,
+        Name: formData.name,
+        Phone: formData.phone,
+        Picture: picture,
+        Road: formData.road,
+        Suburb: formData.suburb,
       })
       .then(() => {
         Alert.alert("Denuncia feita com sucesso");

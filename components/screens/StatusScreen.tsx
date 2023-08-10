@@ -9,20 +9,22 @@ import Loading from "../components/Loading";
 import { stylesStatus } from "../../styles/styles";
 
 interface ReportDatas {
-  id: number;
-  animal: string;
-  name: string;
-  suburb: string;
-  status: string;
+  Id: number;
+  Animal: string;
+  Name: string;
+  Suburb: string;
+  Status: string;
 }
 
 export default function StatusScreen() {
   const [data, setData] = useState<ReportDatas[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const reportAPI = "https://petconnect-server-side.onrender.com/reports"
+
   const getReports = () => {
     axios
-      .get("http://localhost:3000/reports")
+      .get(reportAPI)
       .then((res) => {
         setData(res.data);
       })
@@ -48,9 +50,9 @@ export default function StatusScreen() {
             <View style={stylesStatus.content}>
               {data.map((item) => {
                 const setStyle =
-                  item.status === "Opened" || item.status === "Rescued"
+                  item.Status === "OPENED" || item.Status === "RESCUED"
                     ? style.statusColorOpened
-                    : item.status === "On the way"
+                    : item.Status === "ON_THE_WAY"
                     ? style.statusColorOntheWay
                     : style.statusColorClosed;
 
@@ -62,18 +64,18 @@ export default function StatusScreen() {
                       marginVertical: 8,
                       width: "100%",
                     }}
-                    key={item.id}
-                    text={`Numero do Chamado: ${item.id}`}
+                    key={item.Id}
+                    text={`Numero do Chamado: ${item.Id}`}
                   >
                     <View>
                       <View style={stylesStatus.row}>
-                        <Text style={stylesStatus.column}>Nome: {item.name}</Text>
-                        <Text>Animal: {item.animal}</Text>
+                        <Text style={stylesStatus.column}>Nome: {item.Name}</Text>
+                        <Text>Animal: {item.Animal}</Text>
                       </View>
                       <View style={stylesStatus.row}>
-                        <Text style={stylesStatus.column}>Bairro: {item.suburb}</Text>
+                        <Text style={stylesStatus.column}>Bairro: {item.Suburb}</Text>
                         <Text>
-                          Status: <Text style={setStyle}>{item.status}</Text>
+                          Status: <Text style={setStyle}>{item.Status}</Text>
                         </Text>
                       </View>
                     </View>
